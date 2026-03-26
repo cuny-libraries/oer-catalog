@@ -68,7 +68,7 @@ HTML_TEMPLATE = """\
     .filters select {{
       font-size: 13px;
       padding: 5px 8px;
-      border: 1px solid #ccc;
+      border: 1px solid #767676;
       border-radius: 4px;
       background: #fff;
       cursor: pointer;
@@ -99,20 +99,35 @@ HTML_TEMPLATE = """\
     #oer-catalog a:hover {{
       text-decoration: underline;
     }}
+    #oer-catalog a:focus {{
+      outline: 2px solid #4a90d9;
+      outline-offset: 2px;
+    }}
     .dataTables_wrapper .dataTables_filter input {{
-      border: 1px solid #ccc;
+      border: 1px solid #767676;
       border-radius: 4px;
       padding: 4px 8px;
+    }}
+    .sr-only {{
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
     }}
   </style>
 </head>
 <body>
-  <h1>{title}</h1>
+  <h1 id="catalog-title">{title}</h1>
   <div class="filters">
 {filter_selects}
   </div>
   <div class="table-wrapper">
-    <table id="oer-catalog" class="display" style="width:100%">
+    <table id="oer-catalog" class="display" style="width:100%" aria-labelledby="catalog-title">
       <thead>
         <tr>
 {header_cells}
@@ -223,7 +238,7 @@ def generate(excel_path: str) -> str:
 
     # Build header cells
     header_cells = "\n".join(
-        "          <th>{}</th>".format(html.escape(h)) for h in visible_headers
+        '          <th scope="col">{}</th>'.format(html.escape(h)) for h in visible_headers
     )
 
     # Build body rows
@@ -239,7 +254,7 @@ def generate(excel_path: str) -> str:
             val = row[i]
             cell_text = str(val).strip() if val is not None else ""
             if h == "OER Title" and link:
-                cell_html = '<a href="{}" target="_blank" rel="noopener">{}</a>'.format(
+                cell_html = '<a href="{}" target="_blank" rel="noopener">{}<span class="sr-only"> (opens in new tab)</span></a>'.format(
                     html.escape(link, quote=True), html.escape(cell_text or "(Untitled)")
                 )
             else:

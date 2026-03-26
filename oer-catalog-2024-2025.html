@@ -40,7 +40,7 @@
     .filters select {
       font-size: 13px;
       padding: 5px 8px;
-      border: 1px solid #ccc;
+      border: 1px solid #767676;
       border-radius: 4px;
       background: #fff;
       cursor: pointer;
@@ -71,15 +71,30 @@
     #oer-catalog a:hover {
       text-decoration: underline;
     }
+    #oer-catalog a:focus {
+      outline: 2px solid #4a90d9;
+      outline-offset: 2px;
+    }
     .dataTables_wrapper .dataTables_filter input {
-      border: 1px solid #ccc;
+      border: 1px solid #767676;
       border-radius: 4px;
       padding: 4px 8px;
+    }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
     }
   </style>
 </head>
 <body>
-  <h1>OER Catalog 2024 2025</h1>
+  <h1 id="catalog-title">OER Catalog 2024 2025</h1>
   <div class="filters">
     <label>Campus
       <select id="filter-campus">
@@ -150,21 +165,21 @@
     </label>
   </div>
   <div class="table-wrapper">
-    <table id="oer-catalog" class="display" style="width:100%">
+    <table id="oer-catalog" class="display" style="width:100%" aria-labelledby="catalog-title">
       <thead>
         <tr>
-          <th>Campus</th>
-          <th>OER Title</th>
-          <th>Type</th>
-          <th>Discipline</th>
-          <th>Author</th>
-          <th>Platform</th>
+          <th scope="col">Campus</th>
+          <th scope="col">OER Title</th>
+          <th scope="col">Type</th>
+          <th scope="col">Discipline</th>
+          <th scope="col">Author</th>
+          <th scope="col">Platform</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td>CUNY GC</td>
-          <td><a href="https://academicworks.cuny.edu/gc_oers/10/" target="_blank" rel="noopener">ECO4000: Statistical Analysis for Economics and Finance</a></td>
+          <td><a href="https://academicworks.cuny.edu/gc_oers/10/" target="_blank" rel="noopener">ECO4000: Statistical Analysis for Economics and Finance<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Syllabus or Curriculum</td>
           <td>Economics and Finance</td>
           <td>Dmytro Dushko</td>
@@ -172,7 +187,7 @@
         </tr>
         <tr>
           <td>CUNY GC</td>
-          <td><a href="https://academicworks.cuny.edu/gc_oers/8/" target="_blank" rel="noopener">763 2nd Year Field Education Syllabus</a></td>
+          <td><a href="https://academicworks.cuny.edu/gc_oers/8/" target="_blank" rel="noopener">763 2nd Year Field Education Syllabus<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Syllabus or Curriculum</td>
           <td>Social Work</td>
           <td>Katrina Hannan</td>
@@ -180,7 +195,7 @@
         </tr>
         <tr>
           <td>CUNY GC</td>
-          <td><a href="https://academicworks.cuny.edu/gc_oers/9/" target="_blank" rel="noopener">History 15200: The United States from the Civil War Era to the Present</a></td>
+          <td><a href="https://academicworks.cuny.edu/gc_oers/9/" target="_blank" rel="noopener">History 15200: The United States from the Civil War Era to the Present<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Syllabus or Curriculum</td>
           <td>History</td>
           <td>Adam Kocurek</td>
@@ -188,7 +203,7 @@
         </tr>
         <tr>
           <td>CUNY GC</td>
-          <td><a href="https://academicworks.cuny.edu/gc_oers/11/" target="_blank" rel="noopener">GEN 140: Gender, Activism, and Social Change</a></td>
+          <td><a href="https://academicworks.cuny.edu/gc_oers/11/" target="_blank" rel="noopener">GEN 140: Gender, Activism, and Social Change<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Syllabus or Curriculum</td>
           <td>Social Sciences</td>
           <td>Ellie Bell</td>
@@ -196,7 +211,7 @@
         </tr>
         <tr>
           <td>CUNY GC</td>
-          <td><a href="https://academicworks.cuny.edu/gc_oers/7/" target="_blank" rel="noopener">Teaching, Learning, &amp; Research on the CUNY Academic Commons</a></td>
+          <td><a href="https://academicworks.cuny.edu/gc_oers/7/" target="_blank" rel="noopener">Teaching, Learning, &amp; Research on the CUNY Academic Commons<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Lecture, Poster, or Presentation</td>
           <td>Teaching and Instruction</td>
           <td>Laurie Hurson</td>
@@ -204,7 +219,7 @@
         </tr>
         <tr>
           <td>CUNY GC</td>
-          <td><a href="https://academicworks.cuny.edu/gc_oers/13/" target="_blank" rel="noopener">Developing a Digital Portfolio</a></td>
+          <td><a href="https://academicworks.cuny.edu/gc_oers/13/" target="_blank" rel="noopener">Developing a Digital Portfolio<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Lecture, Poster, or Presentation</td>
           <td>Teaching and Instruction</td>
           <td>Christina Katopodis</td>
@@ -212,7 +227,7 @@
         </tr>
         <tr>
           <td>CUNY GC</td>
-          <td><a href="https://academicworks.cuny.edu/gc_oers/12/" target="_blank" rel="noopener">Connecting CUNY to the World through OER Collaboration</a></td>
+          <td><a href="https://academicworks.cuny.edu/gc_oers/12/" target="_blank" rel="noopener">Connecting CUNY to the World through OER Collaboration<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Lecture, Poster, or Presentation</td>
           <td>OER</td>
           <td>Thomas Peele (CCNY); 
@@ -228,7 +243,7 @@ Laurie Hurson (CUNY Grad Center)</td>
         </tr>
         <tr>
           <td>Kingsborough</td>
-          <td><a href="https://s3.amazonaws.com/files.commons.gc.cuny.edu/wp-content/blogs.dir/2657/files/2026/02/Copy-of-SOC38-F25-Syllabus-for-ZTC.pdf" target="_blank" rel="noopener">SOC 38: Sociology of Gender</a></td>
+          <td><a href="https://s3.amazonaws.com/files.commons.gc.cuny.edu/wp-content/blogs.dir/2657/files/2026/02/Copy-of-SOC38-F25-Syllabus-for-ZTC.pdf" target="_blank" rel="noopener">SOC 38: Sociology of Gender<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Syllabus or Curriculum</td>
           <td>Social Sciences</td>
           <td>Alison Better</td>
@@ -236,7 +251,7 @@ Laurie Hurson (CUNY Grad Center)</td>
         </tr>
         <tr>
           <td>Kingsborough</td>
-          <td><a href="https://docs.google.com/presentation/d/1RhPfLiMuaOEO-jaH6pfVOz3IugtC4CozsyQ8ZLcF4v4/edit?usp=sharing" target="_blank" rel="noopener">OE@KCC Crash Course in Open Education</a></td>
+          <td><a href="https://docs.google.com/presentation/d/1RhPfLiMuaOEO-jaH6pfVOz3IugtC4CozsyQ8ZLcF4v4/edit?usp=sharing" target="_blank" rel="noopener">OE@KCC Crash Course in Open Education<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Lecture, Poster, or Presentation</td>
           <td>Teaching and Instruction</td>
           <td>Shawna M. Brandle</td>
@@ -244,7 +259,7 @@ Laurie Hurson (CUNY Grad Center)</td>
         </tr>
         <tr>
           <td>Baruch</td>
-          <td><a href="https://academicworks.cuny.edu/bb_oers/103/" target="_blank" rel="noopener">Zero Textbook Cost Syllabus for CIS 3920 (Intro to Data Mining)</a></td>
+          <td><a href="https://academicworks.cuny.edu/bb_oers/103/" target="_blank" rel="noopener">Zero Textbook Cost Syllabus for CIS 3920 (Intro to Data Mining)<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Syllabus or Curriculum</td>
           <td>Computer Science and Engineering</td>
           <td>Lawrence M Cohen</td>
@@ -252,7 +267,7 @@ Laurie Hurson (CUNY Grad Center)</td>
         </tr>
         <tr>
           <td>Baruch</td>
-          <td><a href="https://academicworks.cuny.edu/bb_oers/95/" target="_blank" rel="noopener">Zero Textbook Cost Syllabus for PHI 1700 (Global Ethics)</a></td>
+          <td><a href="https://academicworks.cuny.edu/bb_oers/95/" target="_blank" rel="noopener">Zero Textbook Cost Syllabus for PHI 1700 (Global Ethics)<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Syllabus or Curriculum</td>
           <td>Philosophy</td>
           <td>Yingshihan Zhu</td>
@@ -260,7 +275,7 @@ Laurie Hurson (CUNY Grad Center)</td>
         </tr>
         <tr>
           <td>Baruch</td>
-          <td><a href="https://academicworks.cuny.edu/bb_oers/128/" target="_blank" rel="noopener">Spring 2025 OER Seminar</a></td>
+          <td><a href="https://academicworks.cuny.edu/bb_oers/128/" target="_blank" rel="noopener">Spring 2025 OER Seminar<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Lecture, Poster, or Presentation</td>
           <td>OER</td>
           <td>Pamela Thielman;
@@ -269,7 +284,7 @@ Katherine Tsan</td>
         </tr>
         <tr>
           <td>Baruch</td>
-          <td><a href="https://academicworks.cuny.edu/bb_oers/104/" target="_blank" rel="noopener">(Untitled)</a></td>
+          <td><a href="https://academicworks.cuny.edu/bb_oers/104/" target="_blank" rel="noopener">(Untitled)<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Syllabus or Curriculum</td>
           <td>Social Sciences</td>
           <td>Michael Villanova</td>
@@ -277,7 +292,7 @@ Katherine Tsan</td>
         </tr>
         <tr>
           <td>Baruch</td>
-          <td><a href="https://academicworks.cuny.edu/bb_oers/106/" target="_blank" rel="noopener">Zero/Low Textbook Cost Syllabus for [39335 ENG 2100 - HTRF Writing I]</a></td>
+          <td><a href="https://academicworks.cuny.edu/bb_oers/106/" target="_blank" rel="noopener">Zero/Low Textbook Cost Syllabus for [39335 ENG 2100 - HTRF Writing I]<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Syllabus or Curriculum</td>
           <td>Languages, Culture, and Literature</td>
           <td>Ju Ly Ban</td>
@@ -285,7 +300,7 @@ Katherine Tsan</td>
         </tr>
         <tr>
           <td>Baruch</td>
-          <td><a href="https://academicworks.cuny.edu/bb_oers/107/" target="_blank" rel="noopener">Zero Textbook Low Cost Syllabus fro English 2100 (Writing 1)</a></td>
+          <td><a href="https://academicworks.cuny.edu/bb_oers/107/" target="_blank" rel="noopener">Zero Textbook Low Cost Syllabus fro English 2100 (Writing 1)<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Syllabus or Curriculum</td>
           <td>Languages, Culture, and Literature</td>
           <td>Anne Grevenitis</td>
@@ -293,7 +308,7 @@ Katherine Tsan</td>
         </tr>
         <tr>
           <td>Baruch</td>
-          <td><a href="https://academicworks.cuny.edu/bb_oers/124/" target="_blank" rel="noopener">Mapping Rhetoric: Cross-Analyzing Protest Movements</a></td>
+          <td><a href="https://academicworks.cuny.edu/bb_oers/124/" target="_blank" rel="noopener">Mapping Rhetoric: Cross-Analyzing Protest Movements<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Curriculum Unit or Lesson Plan</td>
           <td>History</td>
           <td>Eva Dunsky</td>
@@ -301,7 +316,7 @@ Katherine Tsan</td>
         </tr>
         <tr>
           <td>Baruch</td>
-          <td><a href="https://academicworks.cuny.edu/bb_oers/121/" target="_blank" rel="noopener">CUNY ’69 – Students in Social Movements. A Global Perspective</a></td>
+          <td><a href="https://academicworks.cuny.edu/bb_oers/121/" target="_blank" rel="noopener">CUNY ’69 – Students in Social Movements. A Global Perspective<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Syllabus or Curriculum</td>
           <td>Social Sciences</td>
           <td>Despina Lalaki</td>
@@ -309,7 +324,7 @@ Katherine Tsan</td>
         </tr>
         <tr>
           <td>Baruch</td>
-          <td><a href="https://academicworks.cuny.edu/bb_oers/122/" target="_blank" rel="noopener">CUNY 1969 Feminist/Queer Visual Arts Archive Assignment</a></td>
+          <td><a href="https://academicworks.cuny.edu/bb_oers/122/" target="_blank" rel="noopener">CUNY 1969 Feminist/Queer Visual Arts Archive Assignment<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Assignment, Activity, or Lab</td>
           <td>Social Sciences</td>
           <td>Portia Seddon</td>
@@ -317,7 +332,7 @@ Katherine Tsan</td>
         </tr>
         <tr>
           <td>Baruch</td>
-          <td><a href="https://academicworks.cuny.edu/bb_oers/120/" target="_blank" rel="noopener">Evaluating the 1960s Student Movement @ CUNY &amp; Beyond</a></td>
+          <td><a href="https://academicworks.cuny.edu/bb_oers/120/" target="_blank" rel="noopener">Evaluating the 1960s Student Movement @ CUNY &amp; Beyond<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Curriculum Unit or Lesson Plan</td>
           <td>History</td>
           <td>Victoria Stratis</td>
@@ -325,7 +340,7 @@ Katherine Tsan</td>
         </tr>
         <tr>
           <td>Baruch</td>
-          <td><a href="https://academicworks.cuny.edu/bb_oers/123/" target="_blank" rel="noopener">Timeline Assignment for HIS3055: The Sixties</a></td>
+          <td><a href="https://academicworks.cuny.edu/bb_oers/123/" target="_blank" rel="noopener">Timeline Assignment for HIS3055: The Sixties<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Assignment, Activity, or Lab</td>
           <td>History</td>
           <td>Katie Uva</td>
@@ -333,7 +348,7 @@ Katherine Tsan</td>
         </tr>
         <tr>
           <td>Baruch</td>
-          <td><a href="https://academicworks.cuny.edu/bb_oers/127/" target="_blank" rel="noopener">Where do I fit in CUNY? A Course Toolkit</a></td>
+          <td><a href="https://academicworks.cuny.edu/bb_oers/127/" target="_blank" rel="noopener">Where do I fit in CUNY? A Course Toolkit<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Curriculum Unit or Lesson Plan</td>
           <td>Languages, Culture, and Literature</td>
           <td>Anna Grevenitis</td>
@@ -341,7 +356,7 @@ Katherine Tsan</td>
         </tr>
         <tr>
           <td>Baruch</td>
-          <td><a href="https://academicworks.cuny.edu/bb_oers/125/" target="_blank" rel="noopener">Email Synthesis Assignment: Using AI to Assist Us in Creating Effective Business Communication</a></td>
+          <td><a href="https://academicworks.cuny.edu/bb_oers/125/" target="_blank" rel="noopener">Email Synthesis Assignment: Using AI to Assist Us in Creating Effective Business Communication<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Assignment, Activity, or Lab</td>
           <td>Computer Science and Engineering</td>
           <td>Gino Perrotte</td>
@@ -349,7 +364,7 @@ Katherine Tsan</td>
         </tr>
         <tr>
           <td>Baruch</td>
-          <td><a href="https://academicworks.cuny.edu/bb_oers/126/" target="_blank" rel="noopener">Sample Instructions for Generating Topics for a Final Master&#x27;s Thesis or Capstone</a></td>
+          <td><a href="https://academicworks.cuny.edu/bb_oers/126/" target="_blank" rel="noopener">Sample Instructions for Generating Topics for a Final Master&#x27;s Thesis or Capstone<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Assignment, Activity, or Lab</td>
           <td>Computer Science and Engineering</td>
           <td>Elizabeth Minei</td>
@@ -357,7 +372,7 @@ Katherine Tsan</td>
         </tr>
         <tr>
           <td>Baruch</td>
-          <td><a href="https://pressbooks.cuny.edu/com3021/" target="_blank" rel="noopener">Professional Speaking for the Modern Workplace</a></td>
+          <td><a href="https://pressbooks.cuny.edu/com3021/" target="_blank" rel="noopener">Professional Speaking for the Modern Workplace<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Textbook or Textbook Chapter</td>
           <td>Computer Science and Engineering</td>
           <td>Allison Hahn;
@@ -366,7 +381,7 @@ Donovan Bisbee</td>
         </tr>
         <tr>
           <td>Baruch</td>
-          <td><a href="https://academicworks.cuny.edu/bb_oers/90/" target="_blank" rel="noopener">Engaging Ethics in Technology and Artificial Intelligence</a></td>
+          <td><a href="https://academicworks.cuny.edu/bb_oers/90/" target="_blank" rel="noopener">Engaging Ethics in Technology and Artificial Intelligence<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Assignment, Activity, or Lab</td>
           <td>Philosophy</td>
           <td>Elizabeth Edenberg</td>
@@ -374,7 +389,7 @@ Donovan Bisbee</td>
         </tr>
         <tr>
           <td>CSI</td>
-          <td><a href="https://academicworks.cuny.edu/si_oers/102/" target="_blank" rel="noopener">SLS261: Nature of Physical Processes</a></td>
+          <td><a href="https://academicworks.cuny.edu/si_oers/102/" target="_blank" rel="noopener">SLS261: Nature of Physical Processes<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Syllabus or Curriculum</td>
           <td>Natural Sciences</td>
           <td>Gustavo Machado Monteiro</td>
@@ -382,7 +397,7 @@ Donovan Bisbee</td>
         </tr>
         <tr>
           <td>CSI</td>
-          <td><a href="https://academicworks.cuny.edu/si_oers/113/" target="_blank" rel="noopener">ZTC ENG 151 Syllabus: College Writing</a></td>
+          <td><a href="https://academicworks.cuny.edu/si_oers/113/" target="_blank" rel="noopener">ZTC ENG 151 Syllabus: College Writing<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Syllabus or Curriculum</td>
           <td>Languages, Culture, and Literature</td>
           <td>Nicolette Guida</td>
@@ -390,7 +405,7 @@ Donovan Bisbee</td>
         </tr>
         <tr>
           <td>CSI</td>
-          <td><a href="https://academicworks.cuny.edu/si_oers/110/" target="_blank" rel="noopener">Create GenAI Illustrative Stories for Multicultural Teaching</a></td>
+          <td><a href="https://academicworks.cuny.edu/si_oers/110/" target="_blank" rel="noopener">Create GenAI Illustrative Stories for Multicultural Teaching<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Lecture, Poster, or Presentation</td>
           <td>Education</td>
           <td>Ting Yuan</td>
@@ -398,7 +413,7 @@ Donovan Bisbee</td>
         </tr>
         <tr>
           <td>CSI</td>
-          <td><a href="https://academicworks.cuny.edu/si_oers/105/" target="_blank" rel="noopener">Learning to Code with GitHub Copilot: A Resource for New Student Developers</a></td>
+          <td><a href="https://academicworks.cuny.edu/si_oers/105/" target="_blank" rel="noopener">Learning to Code with GitHub Copilot: A Resource for New Student Developers<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Assignment, Activity, or Lab</td>
           <td>Computer Science and Engineering</td>
           <td>Sarah Zelikovitz</td>
@@ -406,7 +421,7 @@ Donovan Bisbee</td>
         </tr>
         <tr>
           <td>CSI</td>
-          <td><a href="https://academicworks.cuny.edu/si_oers/109/" target="_blank" rel="noopener">Experimentation With Speech Recognition and Word Error Rates</a></td>
+          <td><a href="https://academicworks.cuny.edu/si_oers/109/" target="_blank" rel="noopener">Experimentation With Speech Recognition and Word Error Rates<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Assignment, Activity, or Lab</td>
           <td>Computer Science and Engineering</td>
           <td>Sarah Zelikovitz;
@@ -415,7 +430,7 @@ Orit D. Gruber</td>
         </tr>
         <tr>
           <td>SPS</td>
-          <td><a href="https://openlab.sps.cuny.edu/open-for-all-workshop/" target="_blank" rel="noopener">Open for All Workshop</a></td>
+          <td><a href="https://openlab.sps.cuny.edu/open-for-all-workshop/" target="_blank" rel="noopener">Open for All Workshop<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Workshop</td>
           <td>Teaching and Instruction</td>
           <td>Kelly Hammond;
@@ -424,7 +439,7 @@ Sarah Kresh</td>
         </tr>
         <tr>
           <td>SPS</td>
-          <td><a href="https://openlab.sps.cuny.edu/open-udl-workshop/" target="_blank" rel="noopener">Open UDL Workshop</a></td>
+          <td><a href="https://openlab.sps.cuny.edu/open-udl-workshop/" target="_blank" rel="noopener">Open UDL Workshop<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Workshop</td>
           <td>Teaching and Instruction</td>
           <td>School of Professional Studies</td>
@@ -433,7 +448,7 @@ Sarah Kresh</td>
         <tr>
           <td>SPS</td>
           <td><a href="https://academicworks.cuny.edu/sps_oers/28/" target="_blank" rel="noopener">Social Annotation: Building engagement and community 
-while improving academic skills</a></td>
+while improving academic skills<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Lecture, Poster, or Presentation</td>
           <td>Teaching and Instruction</td>
           <td>Kelly Hammond</td>
@@ -441,7 +456,7 @@ while improving academic skills</a></td>
         </tr>
         <tr>
           <td>LaGuardia</td>
-          <td><a href="https://pressbooks.cuny.edu/humanservicesseminarandinternship/" target="_blank" rel="noopener">Human Services Seminar and Internship</a></td>
+          <td><a href="https://pressbooks.cuny.edu/humanservicesseminarandinternship/" target="_blank" rel="noopener">Human Services Seminar and Internship<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Textbook or Textbook Chapter</td>
           <td>Health Sciences</td>
           <td>Maureen Doyle;
@@ -450,7 +465,7 @@ David Whyne</td>
         </tr>
         <tr>
           <td>LaGuardia</td>
-          <td><a href="https://www.youtube.com/@julinekoken804" target="_blank" rel="noopener">HSS 216 Introduction to Motivational Interviewing</a></td>
+          <td><a href="https://www.youtube.com/@julinekoken804" target="_blank" rel="noopener">HSS 216 Introduction to Motivational Interviewing<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Video</td>
           <td>Health Sciences</td>
           <td>Juline Koken;
@@ -459,7 +474,7 @@ Govindi Singh</td>
         </tr>
         <tr>
           <td>LaGuardia</td>
-          <td><a href="https://pressbooks.cuny.edu/illustration/" target="_blank" rel="noopener">Illustration</a></td>
+          <td><a href="https://pressbooks.cuny.edu/illustration/" target="_blank" rel="noopener">Illustration<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Textbook or Textbook Chapter</td>
           <td>Media, Arts, and Technology</td>
           <td>Jessica Boehman</td>
@@ -467,7 +482,7 @@ Govindi Singh</td>
         </tr>
         <tr>
           <td>LaGuardia</td>
-          <td><a href="https://pressbooks.cuny.edu/physicaltherapistassistantmobilityhandbook/" target="_blank" rel="noopener">Physical Therapist Assistant Mobility Handbook</a></td>
+          <td><a href="https://pressbooks.cuny.edu/physicaltherapistassistantmobilityhandbook/" target="_blank" rel="noopener">Physical Therapist Assistant Mobility Handbook<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Textbook or Textbook Chapter</td>
           <td>Health Sciences</td>
           <td>Sandra Ribiero;
@@ -476,7 +491,7 @@ Emie Hyman</td>
         </tr>
         <tr>
           <td>LaGuardia</td>
-          <td><a href="https://www.youtube.com/@PTAOERProject" target="_blank" rel="noopener">PTAOERProject</a></td>
+          <td><a href="https://www.youtube.com/@PTAOERProject" target="_blank" rel="noopener">PTAOERProject<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Video</td>
           <td>Health Sciences</td>
           <td>Sandra Ribiero;
@@ -485,7 +500,7 @@ Emie Hyman</td>
         </tr>
         <tr>
           <td>LaGuardia</td>
-          <td><a href="https://pressbooks.cuny.edu/lagccfys/" target="_blank" rel="noopener">First Year Seminar: LaGuardia Community College</a></td>
+          <td><a href="https://pressbooks.cuny.edu/lagccfys/" target="_blank" rel="noopener">First Year Seminar: LaGuardia Community College<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Textbook or Textbook Chapter</td>
           <td>Teaching and Instruction</td>
           <td>Kristina Graham;
@@ -500,7 +515,7 @@ Allyson Sheffield</td>
         </tr>
         <tr>
           <td>LaGuardia</td>
-          <td><a href="https://academicworks.cuny.edu/lg_oers/136/" target="_blank" rel="noopener">Experiment 1--Density, Measurement and Significant Figures</a></td>
+          <td><a href="https://academicworks.cuny.edu/lg_oers/136/" target="_blank" rel="noopener">Experiment 1--Density, Measurement and Significant Figures<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Assignment, Activity, or Lab</td>
           <td>Natural Sciences</td>
           <td>Kevin Mark;
@@ -509,7 +524,7 @@ Phil Mercier</td>
         </tr>
         <tr>
           <td>LaGuardia</td>
-          <td><a href="https://cuny.manifoldapp.org/projects/oer-faculty-handbook" target="_blank" rel="noopener">Online Teaching: A Handbook for Instructors at LaGuardia Community College Teaching Online Courses</a></td>
+          <td><a href="https://cuny.manifoldapp.org/projects/oer-faculty-handbook" target="_blank" rel="noopener">Online Teaching: A Handbook for Instructors at LaGuardia Community College Teaching Online Courses<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Textbook or Textbook Chapter</td>
           <td>Teaching and Instruction</td>
           <td>Michele de Goeas-Malone;
@@ -518,7 +533,7 @@ Paul Fess</td>
         </tr>
         <tr>
           <td>LaGuardia</td>
-          <td><a href="https://academicworks.cuny.edu/lg_oers/128/" target="_blank" rel="noopener">Textual Transformations: An Introduction to AI for Composition 101</a></td>
+          <td><a href="https://academicworks.cuny.edu/lg_oers/128/" target="_blank" rel="noopener">Textual Transformations: An Introduction to AI for Composition 101<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Curriculum Unit or Lesson Plan</td>
           <td>Languages, Culture, and Literature</td>
           <td>J. Elizabeth Clark</td>
@@ -526,7 +541,7 @@ Paul Fess</td>
         </tr>
         <tr>
           <td>LaGuardia</td>
-          <td><a href="https://academicworks.cuny.edu/lg_oers/133/" target="_blank" rel="noopener">Growth Mindset and Generative AI</a></td>
+          <td><a href="https://academicworks.cuny.edu/lg_oers/133/" target="_blank" rel="noopener">Growth Mindset and Generative AI<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Curriculum Unit or Lesson Plan</td>
           <td>Languages, Culture, and Literature</td>
           <td>J. Elizabeth Clark;
@@ -535,7 +550,7 @@ Casandra Silva Sibilin</td>
         </tr>
         <tr>
           <td>LaGuardia</td>
-          <td><a href="https://academicworks.cuny.edu/lg_oers/135/" target="_blank" rel="noopener">Open Educational Resources (OER) Workshop Slides for the Center for Teaching &amp; Learning Annual Seminar</a></td>
+          <td><a href="https://academicworks.cuny.edu/lg_oers/135/" target="_blank" rel="noopener">Open Educational Resources (OER) Workshop Slides for the Center for Teaching &amp; Learning Annual Seminar<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Lecture, Poster, or Presentation</td>
           <td>Library and Information Science</td>
           <td>Ian McDermott;
@@ -545,7 +560,7 @@ Emma Handte</td>
         </tr>
         <tr>
           <td>LaGuardia</td>
-          <td><a href="https://academicworks.cuny.edu/lg_oers/140/" target="_blank" rel="noopener">SCP 231 Dictionary + Example Problems [General Physics 1]</a></td>
+          <td><a href="https://academicworks.cuny.edu/lg_oers/140/" target="_blank" rel="noopener">SCP 231 Dictionary + Example Problems [General Physics 1]<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Assignment, Activity, or Lab</td>
           <td>Natural Sciences</td>
           <td>Daniel Capic</td>
@@ -553,7 +568,7 @@ Emma Handte</td>
         </tr>
         <tr>
           <td>LaGuardia</td>
-          <td><a href="https://www.youtube.com/@DanielCapic/videos" target="_blank" rel="noopener">Daniel Capic Youtube Channel</a></td>
+          <td><a href="https://www.youtube.com/@DanielCapic/videos" target="_blank" rel="noopener">Daniel Capic Youtube Channel<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Video</td>
           <td>Natural Sciences</td>
           <td>Daniel Capic</td>
@@ -561,7 +576,7 @@ Emma Handte</td>
         </tr>
         <tr>
           <td>NYCCT</td>
-          <td><a href="https://openprocessing.org/class/91696#/" target="_blank" rel="noopener">Demos for MTEC 1201 Computer Programming for Interactive Media I</a></td>
+          <td><a href="https://openprocessing.org/class/91696#/" target="_blank" rel="noopener">Demos for MTEC 1201 Computer Programming for Interactive Media I<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Assignment, Activity, or Lab</td>
           <td>Media, Arts, and Technology</td>
           <td>Allison Berkoy</td>
@@ -569,7 +584,7 @@ Emma Handte</td>
         </tr>
         <tr>
           <td>NYCCT</td>
-          <td><a href="https://pressbooks.cuny.edu/openstaxpsychologynycctversion/" target="_blank" rel="noopener">Psychology 2e OpenStax</a></td>
+          <td><a href="https://pressbooks.cuny.edu/openstaxpsychologynycctversion/" target="_blank" rel="noopener">Psychology 2e OpenStax<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Textbook or Textbook Chapter</td>
           <td>Social Sciences</td>
           <td>Marie Parnes;
@@ -578,7 +593,7 @@ Maria Pagano</td>
         </tr>
         <tr>
           <td>NYCCT</td>
-          <td><a href="https://academicworks.cuny.edu/ny_oers/81/" target="_blank" rel="noopener">A Comprehensive Guide to Construction Documentation: From Hand Drafting to BIM</a></td>
+          <td><a href="https://academicworks.cuny.edu/ny_oers/81/" target="_blank" rel="noopener">A Comprehensive Guide to Construction Documentation: From Hand Drafting to BIM<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Textbook or Textbook Chapter</td>
           <td>Computer Science and Engineering</td>
           <td>Cesar Salazar</td>
@@ -586,7 +601,7 @@ Maria Pagano</td>
         </tr>
         <tr>
           <td>NYCCT</td>
-          <td><a href="https://pressbooks.cuny.edu/medmetrics/" target="_blank" rel="noopener">Medical Metrics in Health Facilities</a></td>
+          <td><a href="https://pressbooks.cuny.edu/medmetrics/" target="_blank" rel="noopener">Medical Metrics in Health Facilities<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Textbook or Textbook Chapter</td>
           <td>Health Sciences</td>
           <td>Sitaji Gurung</td>
@@ -594,7 +609,7 @@ Maria Pagano</td>
         </tr>
         <tr>
           <td>NYCCT</td>
-          <td><a href="https://academicworks.cuny.edu/ny_oers/74/" target="_blank" rel="noopener">Science Fiction, ENG 2420, Syllabus and Course Outline</a></td>
+          <td><a href="https://academicworks.cuny.edu/ny_oers/74/" target="_blank" rel="noopener">Science Fiction, ENG 2420, Syllabus and Course Outline<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Syllabus or Curriculum</td>
           <td>Languages, Culture, and Literature</td>
           <td>Jason Ellis</td>
@@ -602,7 +617,7 @@ Maria Pagano</td>
         </tr>
         <tr>
           <td>NYCCT</td>
-          <td><a href="https://academicworks.cuny.edu/ny_oers/80/" target="_blank" rel="noopener">City Tech OpenLab OER Checklist with help links</a></td>
+          <td><a href="https://academicworks.cuny.edu/ny_oers/80/" target="_blank" rel="noopener">City Tech OpenLab OER Checklist with help links<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Guide or Reference</td>
           <td>OER</td>
           <td>Andrew McKinney;
@@ -612,7 +627,7 @@ Cailean Cooney</td>
         </tr>
         <tr>
           <td>NYCCT</td>
-          <td><a href="https://academicworks.cuny.edu/ny_oers/78" target="_blank" rel="noopener">Machine Learning Course: A 15-Week Interactive Curriculum with Code and Case Studies</a></td>
+          <td><a href="https://academicworks.cuny.edu/ny_oers/78" target="_blank" rel="noopener">Machine Learning Course: A 15-Week Interactive Curriculum with Code and Case Studies<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Syllabus or Curriculum</td>
           <td>Computer Science and Engineering</td>
           <td>Pegah Khosravi</td>
@@ -620,7 +635,7 @@ Cailean Cooney</td>
         </tr>
         <tr>
           <td>NYCCT</td>
-          <td><a href="https://academicworks.cuny.edu/ny_oers/75/" target="_blank" rel="noopener">From the Heart: Writing Love Poetry with AI</a></td>
+          <td><a href="https://academicworks.cuny.edu/ny_oers/75/" target="_blank" rel="noopener">From the Heart: Writing Love Poetry with AI<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Curriculum Unit or Lesson Plan</td>
           <td>Media, Arts, and Technology</td>
           <td>Dan Ryan</td>
@@ -628,7 +643,7 @@ Cailean Cooney</td>
         </tr>
         <tr>
           <td>NYCCT</td>
-          <td><a href="https://academicworks.cuny.edu/ny_oers/77/" target="_blank" rel="noopener">Collaborative AI: OER Materials for Exploring AI as a Partner Rather than a Tool</a></td>
+          <td><a href="https://academicworks.cuny.edu/ny_oers/77/" target="_blank" rel="noopener">Collaborative AI: OER Materials for Exploring AI as a Partner Rather than a Tool<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Guide or Reference</td>
           <td>Computer Science and Engineering</td>
           <td>David Smith</td>
@@ -636,7 +651,7 @@ Cailean Cooney</td>
         </tr>
         <tr>
           <td>NYCCT</td>
-          <td><a href="https://academicworks.cuny.edu/ny_oers/79/" target="_blank" rel="noopener">Ideal Mathematical Pendulum: Examples of Physics Problem Conditions Expressed Primarily Through Diagrams</a></td>
+          <td><a href="https://academicworks.cuny.edu/ny_oers/79/" target="_blank" rel="noopener">Ideal Mathematical Pendulum: Examples of Physics Problem Conditions Expressed Primarily Through Diagrams<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Assignment, Activity, or Lab</td>
           <td>Natural Sciences</td>
           <td>Vasiliy Znamenskiy</td>
@@ -644,7 +659,7 @@ Cailean Cooney</td>
         </tr>
         <tr>
           <td>NYCCT</td>
-          <td><a href="https://pressbooks.cuny.edu/undergraduateresearchmentoringhandbook/" target="_blank" rel="noopener">A Handbook on Mentoring Students in Undergraduate Research: Proven Strategies for Success (2nd edition)</a></td>
+          <td><a href="https://pressbooks.cuny.edu/undergraduateresearchmentoringhandbook/" target="_blank" rel="noopener">A Handbook on Mentoring Students in Undergraduate Research: Proven Strategies for Success (2nd edition)<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Textbook or Textbook Chapter</td>
           <td>Teaching and Instruction</td>
           <td>Nadia Benakli;
@@ -657,7 +672,7 @@ Diana Samaroo</td>
         </tr>
         <tr>
           <td>NYCCT</td>
-          <td><a href="https://academicworks.cuny.edu/ny_oers/73/" target="_blank" rel="noopener">QueryMate: A Custom LLM Powered by LlamaCpp</a></td>
+          <td><a href="https://academicworks.cuny.edu/ny_oers/73/" target="_blank" rel="noopener">QueryMate: A Custom LLM Powered by LlamaCpp<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Assignment, Activity, or Lab</td>
           <td>Computer Science and Engineering</td>
           <td>Pegah Khosravi</td>
@@ -665,7 +680,7 @@ Diana Samaroo</td>
         </tr>
         <tr>
           <td>Queens</td>
-          <td><a href="https://academicworks.cuny.edu/qc_oers/95/" target="_blank" rel="noopener">Historical, Philosophical, and Social Foundations of Education</a></td>
+          <td><a href="https://academicworks.cuny.edu/qc_oers/95/" target="_blank" rel="noopener">Historical, Philosophical, and Social Foundations of Education<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Syllabus or Curriculum</td>
           <td>Education</td>
           <td>Ashraf Shady</td>
@@ -673,7 +688,7 @@ Diana Samaroo</td>
         </tr>
         <tr>
           <td>Queens</td>
-          <td><a href="https://academicworks.cuny.edu/qc_oers/122/" target="_blank" rel="noopener">CMLIT 101W: Global Literatures 1</a></td>
+          <td><a href="https://academicworks.cuny.edu/qc_oers/122/" target="_blank" rel="noopener">CMLIT 101W: Global Literatures 1<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Syllabus or Curriculum</td>
           <td>Languages, Culture, and Literature</td>
           <td>Alexandre Moudrov</td>
@@ -681,7 +696,7 @@ Diana Samaroo</td>
         </tr>
         <tr>
           <td>Queens</td>
-          <td><a href="https://academicworks.cuny.edu/qc_oers/96/" target="_blank" rel="noopener">Russian Culture and Thought - RUSS 150W</a></td>
+          <td><a href="https://academicworks.cuny.edu/qc_oers/96/" target="_blank" rel="noopener">Russian Culture and Thought - RUSS 150W<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Syllabus or Curriculum</td>
           <td>Languages, Culture, and Literature</td>
           <td>Malika Ziyamova</td>
@@ -689,7 +704,7 @@ Diana Samaroo</td>
         </tr>
         <tr>
           <td>Queens</td>
-          <td><a href="https://academicworks.cuny.edu/qc_oers/101/" target="_blank" rel="noopener">Philosophy of Natural Sciences (PHIL 225) Syllabus</a></td>
+          <td><a href="https://academicworks.cuny.edu/qc_oers/101/" target="_blank" rel="noopener">Philosophy of Natural Sciences (PHIL 225) Syllabus<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Syllabus or Curriculum</td>
           <td>Philosophy</td>
           <td>Ryan J. O&#x27;Loughlin</td>
@@ -697,7 +712,7 @@ Diana Samaroo</td>
         </tr>
         <tr>
           <td>Queens</td>
-          <td><a href="https://academicworks.cuny.edu/qc_oers/94/" target="_blank" rel="noopener">LBSCI 723: Advanced Subject Cataloging and Classification</a></td>
+          <td><a href="https://academicworks.cuny.edu/qc_oers/94/" target="_blank" rel="noopener">LBSCI 723: Advanced Subject Cataloging and Classification<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Syllabus or Curriculum</td>
           <td>Library and Information Science</td>
           <td>Shuheng Wu</td>
@@ -705,7 +720,7 @@ Diana Samaroo</td>
         </tr>
         <tr>
           <td>Queens</td>
-          <td><a href="https://academicworks.cuny.edu/qc_oers/105/" target="_blank" rel="noopener">HIST 212: Europe in the Middle Ages</a></td>
+          <td><a href="https://academicworks.cuny.edu/qc_oers/105/" target="_blank" rel="noopener">HIST 212: Europe in the Middle Ages<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Syllabus or Curriculum</td>
           <td>History</td>
           <td>Tracey L. Billado</td>
@@ -713,7 +728,7 @@ Diana Samaroo</td>
         </tr>
         <tr>
           <td>Queens</td>
-          <td><a href="https://academicworks.cuny.edu/qc_oers/117/" target="_blank" rel="noopener">Geol 12 Natural Disasters Syllabus</a></td>
+          <td><a href="https://academicworks.cuny.edu/qc_oers/117/" target="_blank" rel="noopener">Geol 12 Natural Disasters Syllabus<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Syllabus or Curriculum</td>
           <td>Natural Sciences</td>
           <td>Anestoria Shalkowski</td>
@@ -721,7 +736,7 @@ Diana Samaroo</td>
         </tr>
         <tr>
           <td>Queens</td>
-          <td><a href="https://academicworks.cuny.edu/qc_oers/111/" target="_blank" rel="noopener">FNES 722: Exercise, Energy Balance, And Body Composition</a></td>
+          <td><a href="https://academicworks.cuny.edu/qc_oers/111/" target="_blank" rel="noopener">FNES 722: Exercise, Energy Balance, And Body Composition<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Syllabus or Curriculum</td>
           <td>Health Sciences</td>
           <td>Bridget McFadden</td>
@@ -729,7 +744,7 @@ Diana Samaroo</td>
         </tr>
         <tr>
           <td>Queens</td>
-          <td><a href="https://academicworks.cuny.edu/qc_oers/109" target="_blank" rel="noopener">ECON100 Economics and Society Course -- Queens College</a></td>
+          <td><a href="https://academicworks.cuny.edu/qc_oers/109" target="_blank" rel="noopener">ECON100 Economics and Society Course -- Queens College<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Syllabus or Curriculum</td>
           <td>Economics and Finance</td>
           <td>Clive Belfield</td>
@@ -737,7 +752,7 @@ Diana Samaroo</td>
         </tr>
         <tr>
           <td>Queens</td>
-          <td><a href="https://academicworks.cuny.edu/qc_oers/115/" target="_blank" rel="noopener">GEOL 64: Planetary Geology - Syllabus</a></td>
+          <td><a href="https://academicworks.cuny.edu/qc_oers/115/" target="_blank" rel="noopener">GEOL 64: Planetary Geology - Syllabus<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Syllabus or Curriculum</td>
           <td>Natural Sciences</td>
           <td>Dara Laczniak</td>
@@ -745,7 +760,7 @@ Diana Samaroo</td>
         </tr>
         <tr>
           <td>Queens</td>
-          <td><a href="https://academicworks.cuny.edu/qc_oers/98/" target="_blank" rel="noopener">ARTS 151: Drawing 1</a></td>
+          <td><a href="https://academicworks.cuny.edu/qc_oers/98/" target="_blank" rel="noopener">ARTS 151: Drawing 1<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Syllabus or Curriculum</td>
           <td>Media, Arts, and Technology</td>
           <td>Jennifer Sullivan</td>
@@ -753,7 +768,7 @@ Diana Samaroo</td>
         </tr>
         <tr>
           <td>Queens</td>
-          <td><a href="https://academicworks.cuny.edu/qc_oers/106/" target="_blank" rel="noopener">MEDST101 Contemporary Media, Fall 2025 Syllabus</a></td>
+          <td><a href="https://academicworks.cuny.edu/qc_oers/106/" target="_blank" rel="noopener">MEDST101 Contemporary Media, Fall 2025 Syllabus<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Syllabus or Curriculum</td>
           <td>Media, Arts, and Technology</td>
           <td>Juan Monroy</td>
@@ -761,7 +776,7 @@ Diana Samaroo</td>
         </tr>
         <tr>
           <td>Queens</td>
-          <td><a href="https://academicworks.cuny.edu/qc_oers/103/" target="_blank" rel="noopener">WGST 101W: Introduction to Women and Gender Studies (syllabus)</a></td>
+          <td><a href="https://academicworks.cuny.edu/qc_oers/103/" target="_blank" rel="noopener">WGST 101W: Introduction to Women and Gender Studies (syllabus)<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Syllabus or Curriculum</td>
           <td>Social Sciences</td>
           <td>Karen Weingarten</td>
@@ -769,7 +784,7 @@ Diana Samaroo</td>
         </tr>
         <tr>
           <td>Queens</td>
-          <td><a href="https://academicworks.cuny.edu/qc_oers/114/" target="_blank" rel="noopener">SPAN 338/704: Foundations of Spanish Linguistics</a></td>
+          <td><a href="https://academicworks.cuny.edu/qc_oers/114/" target="_blank" rel="noopener">SPAN 338/704: Foundations of Spanish Linguistics<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Syllabus or Curriculum</td>
           <td>Languages, Culture, and Literature</td>
           <td>Mark Hoff</td>
@@ -777,7 +792,7 @@ Diana Samaroo</td>
         </tr>
         <tr>
           <td>Queens</td>
-          <td><a href="https://academicworks.cuny.edu/qc_oers/102/" target="_blank" rel="noopener">Introduction to Clinical Psychology Syllabus (PSYCH 347)</a></td>
+          <td><a href="https://academicworks.cuny.edu/qc_oers/102/" target="_blank" rel="noopener">Introduction to Clinical Psychology Syllabus (PSYCH 347)<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Syllabus or Curriculum</td>
           <td>Social Sciences</td>
           <td>Valentina Nikulina</td>
@@ -785,7 +800,7 @@ Diana Samaroo</td>
         </tr>
         <tr>
           <td>Queens</td>
-          <td><a href="https://academicworks.cuny.edu/qc_oers/89/" target="_blank" rel="noopener">PSCI 102: Political Controversies: Democracy, Politics, and Freedom.</a></td>
+          <td><a href="https://academicworks.cuny.edu/qc_oers/89/" target="_blank" rel="noopener">PSCI 102: Political Controversies: Democracy, Politics, and Freedom.<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Syllabus or Curriculum</td>
           <td>Social Sciences</td>
           <td>Antonia Cucchiara</td>
@@ -793,7 +808,7 @@ Diana Samaroo</td>
         </tr>
         <tr>
           <td>Queens</td>
-          <td><a href="https://academicworks.cuny.edu/qc_oers/126/" target="_blank" rel="noopener">Advanced Experimental Learning and Behavior Analysis Lab Manual</a></td>
+          <td><a href="https://academicworks.cuny.edu/qc_oers/126/" target="_blank" rel="noopener">Advanced Experimental Learning and Behavior Analysis Lab Manual<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Assignment, Activity, or Lab</td>
           <td>Social Sciences</td>
           <td>Holly Weisberg;
@@ -802,7 +817,7 @@ Sally Izquierdo</td>
         </tr>
         <tr>
           <td>Queens</td>
-          <td><a href="https://academicworks.cuny.edu/qc_oers/131/" target="_blank" rel="noopener">OER Faculty Fellowship</a></td>
+          <td><a href="https://academicworks.cuny.edu/qc_oers/131/" target="_blank" rel="noopener">OER Faculty Fellowship<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Lecture, Poster, or Presentation</td>
           <td>Teaching and Instruction</td>
           <td>Leila Walker</td>
@@ -810,7 +825,7 @@ Sally Izquierdo</td>
         </tr>
         <tr>
           <td>Queens</td>
-          <td><a href="https://pressbooks.cuny.edu/moderngreek1/" target="_blank" rel="noopener">Pame!: Modern Greek for Beginners</a></td>
+          <td><a href="https://pressbooks.cuny.edu/moderngreek1/" target="_blank" rel="noopener">Pame!: Modern Greek for Beginners<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Textbook or Textbook Chapter</td>
           <td>Languages, Culture, and Literature</td>
           <td>Ioanna Glava;
@@ -819,7 +834,7 @@ Fevronia Soumakis</td>
         </tr>
         <tr>
           <td>Queens</td>
-          <td><a href="https://academicworks.cuny.edu/qc_oers/129/" target="_blank" rel="noopener">Lecture Notes on Cloud Computing (Ver. Winter 2026)</a></td>
+          <td><a href="https://academicworks.cuny.edu/qc_oers/129/" target="_blank" rel="noopener">Lecture Notes on Cloud Computing (Ver. Winter 2026)<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Lecture, Poster, or Presentation</td>
           <td>Computer Science and Engineering</td>
           <td>Jun Li</td>
@@ -827,7 +842,7 @@ Fevronia Soumakis</td>
         </tr>
         <tr>
           <td>Queens</td>
-          <td><a href="https://academicworks.cuny.edu/qc_oers/113/" target="_blank" rel="noopener">Math 122: Precalculus Instructor Guide</a></td>
+          <td><a href="https://academicworks.cuny.edu/qc_oers/113/" target="_blank" rel="noopener">Math 122: Precalculus Instructor Guide<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Guide or Reference</td>
           <td>Mathematics</td>
           <td>Seth Lehman</td>
@@ -835,7 +850,7 @@ Fevronia Soumakis</td>
         </tr>
         <tr>
           <td>Queens</td>
-          <td><a href="https://youtube.com/playlist?list=PLGfdEczN1H17k7nKB53p9rjhGfNQDSMFt&amp;si=zAKR0yg4FDc0jyfH" target="_blank" rel="noopener">Math 122: Precalculus</a></td>
+          <td><a href="https://youtube.com/playlist?list=PLGfdEczN1H17k7nKB53p9rjhGfNQDSMFt&amp;si=zAKR0yg4FDc0jyfH" target="_blank" rel="noopener">Math 122: Precalculus<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Video</td>
           <td>Mathematics</td>
           <td>Seth Lehman</td>
@@ -843,7 +858,7 @@ Fevronia Soumakis</td>
         </tr>
         <tr>
           <td>Queens</td>
-          <td><a href="https://www.myopenmath.com/course/public.php?cid=272123" target="_blank" rel="noopener">Math 122: Precalculus</a></td>
+          <td><a href="https://www.myopenmath.com/course/public.php?cid=272123" target="_blank" rel="noopener">Math 122: Precalculus<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Curriculum Unit or Lesson Plan</td>
           <td>Mathematics</td>
           <td>Seth Lehman</td>
@@ -851,7 +866,7 @@ Fevronia Soumakis</td>
         </tr>
         <tr>
           <td>Queens</td>
-          <td><a href="https://academicworks.cuny.edu/qc_oers/119/" target="_blank" rel="noopener">Lowering the barrier for reading primary literature in STEM</a></td>
+          <td><a href="https://academicworks.cuny.edu/qc_oers/119/" target="_blank" rel="noopener">Lowering the barrier for reading primary literature in STEM<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Lecture, Poster, or Presentation</td>
           <td>Natural Sciences</td>
           <td>Sebastian G. Alvarado;
@@ -860,7 +875,7 @@ Maral Tajerian</td>
         </tr>
         <tr>
           <td>Queens</td>
-          <td><a href="https://academicworks.cuny.edu/qc_oers/84/" target="_blank" rel="noopener">Observation Report on Learners’ Use of Digital Tools and Computational Thinking</a></td>
+          <td><a href="https://academicworks.cuny.edu/qc_oers/84/" target="_blank" rel="noopener">Observation Report on Learners’ Use of Digital Tools and Computational Thinking<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Assignment, Activity, or Lab</td>
           <td>Computer Science and Engineering</td>
           <td>Michelle C. Fraboni</td>
@@ -868,7 +883,7 @@ Maral Tajerian</td>
         </tr>
         <tr>
           <td>Queens</td>
-          <td><a href="https://academicworks.cuny.edu/qc_oers/87/" target="_blank" rel="noopener">Evaluating AI in Teacher Performance Reviews: Benefits, Biases, and Best Practices</a></td>
+          <td><a href="https://academicworks.cuny.edu/qc_oers/87/" target="_blank" rel="noopener">Evaluating AI in Teacher Performance Reviews: Benefits, Biases, and Best Practices<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Curriculum Unit or Lesson Plan</td>
           <td>Teaching and Instruction</td>
           <td>Eric Silberberg</td>
@@ -876,7 +891,7 @@ Maral Tajerian</td>
         </tr>
         <tr>
           <td>Queens</td>
-          <td><a href="https://academicworks.cuny.edu/qc_oers/123/" target="_blank" rel="noopener">The Social History of Queens and Brooklyn Research Project</a></td>
+          <td><a href="https://academicworks.cuny.edu/qc_oers/123/" target="_blank" rel="noopener">The Social History of Queens and Brooklyn Research Project<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Assignment, Activity, or Lab</td>
           <td>History</td>
           <td>Kara M. Schlichting</td>
@@ -884,7 +899,7 @@ Maral Tajerian</td>
         </tr>
         <tr>
           <td>Queens</td>
-          <td><a href="https://academicworks.cuny.edu/qc_oers/124/" target="_blank" rel="noopener">Creating an Ofrenda</a></td>
+          <td><a href="https://academicworks.cuny.edu/qc_oers/124/" target="_blank" rel="noopener">Creating an Ofrenda<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Curriculum Unit or Lesson Plan</td>
           <td>Languages, Culture, and Literature</td>
           <td>Sara Hinojos</td>
@@ -892,7 +907,7 @@ Maral Tajerian</td>
         </tr>
         <tr>
           <td>Kingsborough</td>
-          <td><a href="https://academicworks.cuny.edu/kb_oers/79/" target="_blank" rel="noopener">Social Science in Early Childhood Education Open Syllabus</a></td>
+          <td><a href="https://academicworks.cuny.edu/kb_oers/79/" target="_blank" rel="noopener">Social Science in Early Childhood Education Open Syllabus<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Syllabus or Curriculum</td>
           <td>Education</td>
           <td>Denise Farrelly</td>
@@ -900,7 +915,7 @@ Maral Tajerian</td>
         </tr>
         <tr>
           <td>Kingsborough</td>
-          <td><a href="https://academicworks.cuny.edu/kb_oers/73/" target="_blank" rel="noopener">English 24: Freshman Composition II</a></td>
+          <td><a href="https://academicworks.cuny.edu/kb_oers/73/" target="_blank" rel="noopener">English 24: Freshman Composition II<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Syllabus or Curriculum</td>
           <td>Languages, Culture, and Literature</td>
           <td>Joao M. Da Silva</td>
@@ -908,7 +923,7 @@ Maral Tajerian</td>
         </tr>
         <tr>
           <td>Kingsborough</td>
-          <td><a href="https://academicworks.cuny.edu/kb_oers/74/" target="_blank" rel="noopener">English 3000: Introduction to Literature</a></td>
+          <td><a href="https://academicworks.cuny.edu/kb_oers/74/" target="_blank" rel="noopener">English 3000: Introduction to Literature<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Syllabus or Curriculum</td>
           <td>Languages, Culture, and Literature</td>
           <td>Lesley Broder</td>
@@ -916,7 +931,7 @@ Maral Tajerian</td>
         </tr>
         <tr>
           <td>Kingsborough</td>
-          <td><a href="https://academicworks.cuny.edu/kb_oers/77/" target="_blank" rel="noopener">EDC 5000: Foundations of Disability and Inclusive Education</a></td>
+          <td><a href="https://academicworks.cuny.edu/kb_oers/77/" target="_blank" rel="noopener">EDC 5000: Foundations of Disability and Inclusive Education<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Syllabus or Curriculum</td>
           <td>Education</td>
           <td>Maureen Greco-Blois</td>
@@ -924,7 +939,7 @@ Maral Tajerian</td>
         </tr>
         <tr>
           <td>Kingsborough</td>
-          <td><a href="https://academicworks.cuny.edu/kb_oers/76/" target="_blank" rel="noopener">EDC 3200: Infant Toddler Development</a></td>
+          <td><a href="https://academicworks.cuny.edu/kb_oers/76/" target="_blank" rel="noopener">EDC 3200: Infant Toddler Development<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Syllabus or Curriculum</td>
           <td>Education</td>
           <td>Patrice Morgan</td>
@@ -932,7 +947,7 @@ Maral Tajerian</td>
         </tr>
         <tr>
           <td>Kingsborough</td>
-          <td><a href="https://academicworks.cuny.edu/kb_oers/81/" target="_blank" rel="noopener">Psychology 32: Human Growth and Development Syllabus</a></td>
+          <td><a href="https://academicworks.cuny.edu/kb_oers/81/" target="_blank" rel="noopener">Psychology 32: Human Growth and Development Syllabus<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Syllabus or Curriculum</td>
           <td>Social Sciences</td>
           <td>Joanna M. Agnello</td>
@@ -940,7 +955,7 @@ Maral Tajerian</td>
         </tr>
         <tr>
           <td>Kingsborough</td>
-          <td><a href="https://pressbooks.cuny.edu/mat5600linearalgebra/" target="_blank" rel="noopener">Linear Algebra: Lecture Notes</a></td>
+          <td><a href="https://pressbooks.cuny.edu/mat5600linearalgebra/" target="_blank" rel="noopener">Linear Algebra: Lecture Notes<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Lecture, Poster, or Presentation</td>
           <td>Mathematics</td>
           <td>Xinlong Dong</td>
@@ -948,7 +963,7 @@ Maral Tajerian</td>
         </tr>
         <tr>
           <td>Kingsborough</td>
-          <td><a href="https://pressbooks.cuny.edu/macroeconomicsbronxkcc/" target="_blank" rel="noopener">Principals of Macroeconomics 3e (2025): A Revised, Online Textbook for Kingsoborough Community College Students</a></td>
+          <td><a href="https://pressbooks.cuny.edu/macroeconomicsbronxkcc/" target="_blank" rel="noopener">Principals of Macroeconomics 3e (2025): A Revised, Online Textbook for Kingsoborough Community College Students<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Textbook or Textbook Chapter</td>
           <td>Economics and Finance</td>
           <td>Dorina Tila</td>
@@ -956,7 +971,7 @@ Maral Tajerian</td>
         </tr>
         <tr>
           <td>Kingsborough</td>
-          <td><a href="https://academicworks.cuny.edu/kb_oers/84/" target="_blank" rel="noopener">Booklet for Cameras Canon T6 and T7</a></td>
+          <td><a href="https://academicworks.cuny.edu/kb_oers/84/" target="_blank" rel="noopener">Booklet for Cameras Canon T6 and T7<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Guide or Reference</td>
           <td>Media, Arts, and Technology</td>
           <td>Thomas Mintz</td>
@@ -964,7 +979,7 @@ Maral Tajerian</td>
         </tr>
         <tr>
           <td>Kingsborough</td>
-          <td><a href="https://academicworks.cuny.edu/kb_oers/78/" target="_blank" rel="noopener">Finding Peer-Reviewed Research</a></td>
+          <td><a href="https://academicworks.cuny.edu/kb_oers/78/" target="_blank" rel="noopener">Finding Peer-Reviewed Research<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Assignment, Activity, or Lab</td>
           <td>Teaching and Instruction</td>
           <td>Jamie Aroosi</td>
@@ -972,7 +987,7 @@ Maral Tajerian</td>
         </tr>
         <tr>
           <td>Kingsborough</td>
-          <td><a href="https://academicworks.cuny.edu/kb_oers/80/" target="_blank" rel="noopener">Student Self-Evaluation as Assessment: A Reflective Tool for Ungraded Pedagogy</a></td>
+          <td><a href="https://academicworks.cuny.edu/kb_oers/80/" target="_blank" rel="noopener">Student Self-Evaluation as Assessment: A Reflective Tool for Ungraded Pedagogy<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Assignment, Activity, or Lab</td>
           <td>Teaching and Instruction</td>
           <td>Jennifer Corby</td>
@@ -980,7 +995,7 @@ Maral Tajerian</td>
         </tr>
         <tr>
           <td>Kingsborough</td>
-          <td><a href="https://academicworks.cuny.edu/kb_oers/71/" target="_blank" rel="noopener">Centering Equity in an AI-Generated Literacy Read Aloud Lesson Plan Brought to Life By Preservice Teachers</a></td>
+          <td><a href="https://academicworks.cuny.edu/kb_oers/71/" target="_blank" rel="noopener">Centering Equity in an AI-Generated Literacy Read Aloud Lesson Plan Brought to Life By Preservice Teachers<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Assignment, Activity, or Lab</td>
           <td>Teaching and Instruction</td>
           <td>Denise Farrelly</td>
@@ -988,7 +1003,7 @@ Maral Tajerian</td>
         </tr>
         <tr>
           <td>Kingsborough</td>
-          <td><a href="https://academicworks.cuny.edu/kb_oers/82/" target="_blank" rel="noopener">EDC 4200 Children’s Literature and Language Arts in Childhood Education Syllabus</a></td>
+          <td><a href="https://academicworks.cuny.edu/kb_oers/82/" target="_blank" rel="noopener">EDC 4200 Children’s Literature and Language Arts in Childhood Education Syllabus<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Syllabus or Curriculum</td>
           <td>Education</td>
           <td>Ivana Espinet</td>
@@ -996,7 +1011,7 @@ Maral Tajerian</td>
         </tr>
         <tr>
           <td>BMCC</td>
-          <td><a href="https://pressbooks.cuny.edu/understandingmusicbmcc/" target="_blank" rel="noopener">Understanding Music: BMCC Edition</a></td>
+          <td><a href="https://pressbooks.cuny.edu/understandingmusicbmcc/" target="_blank" rel="noopener">Understanding Music: BMCC Edition<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Textbook or Textbook Chapter</td>
           <td>Music and Dance</td>
           <td>Yi-Chuan Chen</td>
@@ -1004,7 +1019,7 @@ Maral Tajerian</td>
         </tr>
         <tr>
           <td>BCC</td>
-          <td><a href="https://academicworks.cuny.edu/bx_oers/66/" target="_blank" rel="noopener">ECO 11: Microeconomics</a></td>
+          <td><a href="https://academicworks.cuny.edu/bx_oers/66/" target="_blank" rel="noopener">ECO 11: Microeconomics<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Syllabus or Curriculum</td>
           <td>Social Sciences</td>
           <td>Karen David</td>
@@ -1012,7 +1027,7 @@ Maral Tajerian</td>
         </tr>
         <tr>
           <td>BCC</td>
-          <td><a href="https://academicworks.cuny.edu/bx_oers/67/" target="_blank" rel="noopener">SOC 37: Social Inequality</a></td>
+          <td><a href="https://academicworks.cuny.edu/bx_oers/67/" target="_blank" rel="noopener">SOC 37: Social Inequality<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Syllabus or Curriculum</td>
           <td>Social Sciences</td>
           <td>Gilbert Marzan</td>
@@ -1020,7 +1035,7 @@ Maral Tajerian</td>
         </tr>
         <tr>
           <td>BCC</td>
-          <td><a href="https://academicworks.cuny.edu/bx_oers/68/" target="_blank" rel="noopener">PSY 41: Psychology of Infancy and Childhood</a></td>
+          <td><a href="https://academicworks.cuny.edu/bx_oers/68/" target="_blank" rel="noopener">PSY 41: Psychology of Infancy and Childhood<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Syllabus or Curriculum</td>
           <td>Social Sciences</td>
           <td>Jude Eugene</td>
@@ -1028,7 +1043,7 @@ Maral Tajerian</td>
         </tr>
         <tr>
           <td>BCC</td>
-          <td><a href="https://academicworks.cuny.edu/bx_pubs/120/" target="_blank" rel="noopener">Empowering Faculty With Open Education: A Three Week Training in OER, ZTC and Open Pedagogy at Bronx Community College</a></td>
+          <td><a href="https://academicworks.cuny.edu/bx_pubs/120/" target="_blank" rel="noopener">Empowering Faculty With Open Education: A Three Week Training in OER, ZTC and Open Pedagogy at Bronx Community College<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Lecture, Poster, or Presentation</td>
           <td>Teaching and Instruction</td>
           <td>Michael Kahn</td>
@@ -1036,7 +1051,7 @@ Maral Tajerian</td>
         </tr>
         <tr>
           <td>Guttman</td>
-          <td><a href="https://academicworks.cuny.edu/nc_oers/31/" target="_blank" rel="noopener">An Introduction to Cultural Anthropology: What Does Anthropology Offer the Current World?</a></td>
+          <td><a href="https://academicworks.cuny.edu/nc_oers/31/" target="_blank" rel="noopener">An Introduction to Cultural Anthropology: What Does Anthropology Offer the Current World?<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Textbook or Textbook Chapter</td>
           <td>Social Sciences</td>
           <td>Kristina Baines;
@@ -1046,7 +1061,7 @@ Baird Campbell</td>
         </tr>
         <tr>
           <td>Guttman</td>
-          <td><a href="https://academicworks.cuny.edu/nc_oers/37/" target="_blank" rel="noopener">The History of Urban Life Textbook</a></td>
+          <td><a href="https://academicworks.cuny.edu/nc_oers/37/" target="_blank" rel="noopener">The History of Urban Life Textbook<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Textbook or Textbook Chapter</td>
           <td>History</td>
           <td>Samuel Finesurrey</td>
@@ -1054,7 +1069,7 @@ Baird Campbell</td>
         </tr>
         <tr>
           <td>Guttman</td>
-          <td><a href="https://academicworks.cuny.edu/nc_oers/33/" target="_blank" rel="noopener">Case Studies in the History of U.S. Empire and Society</a></td>
+          <td><a href="https://academicworks.cuny.edu/nc_oers/33/" target="_blank" rel="noopener">Case Studies in the History of U.S. Empire and Society<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Textbook or Textbook Chapter</td>
           <td>History</td>
           <td>Samuel Finesurrey;
@@ -1063,7 +1078,7 @@ Gary Greaves</td>
         </tr>
         <tr>
           <td>Guttman</td>
-          <td><a href="https://academicworks.cuny.edu/nc_oers/34/" target="_blank" rel="noopener">Estimating the amount of carbon dioxide gas removed from the atmosphere by the Bryant Park tree population Authors</a></td>
+          <td><a href="https://academicworks.cuny.edu/nc_oers/34/" target="_blank" rel="noopener">Estimating the amount of carbon dioxide gas removed from the atmosphere by the Bryant Park tree population Authors<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Assignment, Activity, or Lab</td>
           <td>Natural Sciences</td>
           <td>Edimarlyn Gonzalez</td>
@@ -1071,7 +1086,7 @@ Gary Greaves</td>
         </tr>
         <tr>
           <td>Guttman</td>
-          <td><a href="https://academicworks.cuny.edu/nc_oers/36/" target="_blank" rel="noopener">Investigating the Impact of PFAS Contamination on mental health</a></td>
+          <td><a href="https://academicworks.cuny.edu/nc_oers/36/" target="_blank" rel="noopener">Investigating the Impact of PFAS Contamination on mental health<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Curriculum Unit or Lesson Plan</td>
           <td>Health Sciences</td>
           <td>Jihyun Kim</td>
@@ -1079,7 +1094,7 @@ Gary Greaves</td>
         </tr>
         <tr>
           <td>Guttman</td>
-          <td><a href="https://academicworks.cuny.edu/nc_oers/35/" target="_blank" rel="noopener">At the Farm in Battery Park Assignment</a></td>
+          <td><a href="https://academicworks.cuny.edu/nc_oers/35/" target="_blank" rel="noopener">At the Farm in Battery Park Assignment<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Assignment, Activity, or Lab</td>
           <td>Natural Sciences</td>
           <td>Karen Williams</td>
@@ -1087,7 +1102,7 @@ Gary Greaves</td>
         </tr>
         <tr>
           <td>Guttman</td>
-          <td><a href="https://cuny.manifoldapp.org/projects/ethnographies-of-work" target="_blank" rel="noopener">Ethnography Made Easy (Second Edition)</a></td>
+          <td><a href="https://cuny.manifoldapp.org/projects/ethnographies-of-work" target="_blank" rel="noopener">Ethnography Made Easy (Second Edition)<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Textbook or Textbook Chapter</td>
           <td>Social Sciences</td>
           <td>Alia R. Tyner-Mullings;
@@ -1104,7 +1119,7 @@ Kristina Baines</td>
         </tr>
         <tr>
           <td>John Jay</td>
-          <td><a href="https://academicworks.cuny.edu/jj_oers/29/" target="_blank" rel="noopener">A Guide to Assignments for Open Pedagogy and the Seven Principles for A Culturally Responsive, Inclusive and Anti-Racist Curriculum</a></td>
+          <td><a href="https://academicworks.cuny.edu/jj_oers/29/" target="_blank" rel="noopener">A Guide to Assignments for Open Pedagogy and the Seven Principles for A Culturally Responsive, Inclusive and Anti-Racist Curriculum<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Guide or Reference</td>
           <td>Teaching and Instruction</td>
           <td>Gina R. Foster;
@@ -1118,7 +1133,7 @@ Atharva Orpe</td>
         </tr>
         <tr>
           <td>John Jay</td>
-          <td><a href="https://academicworks.cuny.edu/jj_oers/34/" target="_blank" rel="noopener">Analyzing Qualitative Data Regarding Correctional Staff</a></td>
+          <td><a href="https://academicworks.cuny.edu/jj_oers/34/" target="_blank" rel="noopener">Analyzing Qualitative Data Regarding Correctional Staff<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Assignment, Activity, or Lab</td>
           <td>Social Sciences</td>
           <td>Simone Martin-Howard</td>
@@ -1126,7 +1141,7 @@ Atharva Orpe</td>
         </tr>
         <tr>
           <td>John Jay</td>
-          <td><a href="https://academicworks.cuny.edu/jj_oers/33/" target="_blank" rel="noopener">AI and Positionality:A Guide for Learning Communities</a></td>
+          <td><a href="https://academicworks.cuny.edu/jj_oers/33/" target="_blank" rel="noopener">AI and Positionality:A Guide for Learning Communities<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Guide or Reference</td>
           <td>Teaching and Instruction</td>
           <td>Emese Ilyés</td>
@@ -1134,7 +1149,7 @@ Atharva Orpe</td>
         </tr>
         <tr>
           <td>John Jay</td>
-          <td><a href="https://academicworks.cuny.edu/jj_oers/30/" target="_blank" rel="noopener">Collaborative Study Guide Assignment: Materials, Templates, “Reusable” Pedagogy</a></td>
+          <td><a href="https://academicworks.cuny.edu/jj_oers/30/" target="_blank" rel="noopener">Collaborative Study Guide Assignment: Materials, Templates, “Reusable” Pedagogy<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Assignment, Activity, or Lab</td>
           <td>OER</td>
           <td>Penny Geyer</td>
@@ -1142,7 +1157,7 @@ Atharva Orpe</td>
         </tr>
         <tr>
           <td>John Jay</td>
-          <td><a href="https://academicworks.cuny.edu/jj_oers/31/" target="_blank" rel="noopener">OER Learning In Disguise Toolkit</a></td>
+          <td><a href="https://academicworks.cuny.edu/jj_oers/31/" target="_blank" rel="noopener">OER Learning In Disguise Toolkit<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Assignment, Activity, or Lab</td>
           <td>OER</td>
           <td>Alessandra Early;
@@ -1151,7 +1166,7 @@ Nicole McKenna</td>
         </tr>
         <tr>
           <td>John Jay</td>
-          <td><a href="https://academicworks.cuny.edu/jj_oers/32/" target="_blank" rel="noopener">True Experimental Research Design</a></td>
+          <td><a href="https://academicworks.cuny.edu/jj_oers/32/" target="_blank" rel="noopener">True Experimental Research Design<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Assignment, Activity, or Lab</td>
           <td>Social Sciences</td>
           <td>Mustafa Demir</td>
@@ -1159,7 +1174,7 @@ Nicole McKenna</td>
         </tr>
         <tr>
           <td>John Jay</td>
-          <td><a href="https://pressbooks.cuny.edu/examples/" target="_blank" rel="noopener">John Jay College Pressbooks H5P Examples</a></td>
+          <td><a href="https://pressbooks.cuny.edu/examples/" target="_blank" rel="noopener">John Jay College Pressbooks H5P Examples<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Guide or Reference</td>
           <td>Computer Science and Engineering</td>
           <td>William Perrenod</td>
@@ -1167,7 +1182,7 @@ Nicole McKenna</td>
         </tr>
         <tr>
           <td>John Jay</td>
-          <td><a href="https://pressbooks.cuny.edu/libpsychology/" target="_blank" rel="noopener">Liberation Psychology</a></td>
+          <td><a href="https://pressbooks.cuny.edu/libpsychology/" target="_blank" rel="noopener">Liberation Psychology<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Textbook or Textbook Chapter</td>
           <td>Social Sciences</td>
           <td>Pamela Livecchi;
@@ -1176,7 +1191,7 @@ Mayowa Obasaju</td>
         </tr>
         <tr>
           <td>John Jay</td>
-          <td><a href="https://pressbooks.cuny.edu/lcassignments/part/learning-activity-samples/" target="_blank" rel="noopener">HUM 300 Learning Activities</a></td>
+          <td><a href="https://pressbooks.cuny.edu/lcassignments/part/learning-activity-samples/" target="_blank" rel="noopener">HUM 300 Learning Activities<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Textbook or Textbook Chapter</td>
           <td>Social Sciences</td>
           <td>John Jay College Transforming the Justice Core Project</td>
@@ -1184,7 +1199,7 @@ Mayowa Obasaju</td>
         </tr>
         <tr>
           <td>John Jay</td>
-          <td><a href="https://pressbooks.cuny.edu/lcassignments/part/main-body/" target="_blank" rel="noopener">HUM 300 Assignment Samples</a></td>
+          <td><a href="https://pressbooks.cuny.edu/lcassignments/part/main-body/" target="_blank" rel="noopener">HUM 300 Assignment Samples<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Textbook or Textbook Chapter</td>
           <td>Social Sciences</td>
           <td>John Jay College Transforming the Justice Core Project</td>
@@ -1192,7 +1207,7 @@ Mayowa Obasaju</td>
         </tr>
         <tr>
           <td>John Jay</td>
-          <td><a href="https://pressbooks.cuny.edu/landmarkcases/chapter/america-in-1968-the-music-and-society-that-shaped-terry-v-ohio/" target="_blank" rel="noopener">America in 1968: The Music and Society that Shaped Terry V. Ohio</a></td>
+          <td><a href="https://pressbooks.cuny.edu/landmarkcases/chapter/america-in-1968-the-music-and-society-that-shaped-terry-v-ohio/" target="_blank" rel="noopener">America in 1968: The Music and Society that Shaped Terry V. Ohio<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Textbook or Textbook Chapter</td>
           <td>Music and Dance</td>
           <td>Nora M. Cronin</td>
@@ -1200,7 +1215,7 @@ Mayowa Obasaju</td>
         </tr>
         <tr>
           <td>John Jay</td>
-          <td><a href="https://pressbooks.cuny.edu/landmarkcases/chapter/statistical-analysis-videos/" target="_blank" rel="noopener">Statistical Analysis Videos</a></td>
+          <td><a href="https://pressbooks.cuny.edu/landmarkcases/chapter/statistical-analysis-videos/" target="_blank" rel="noopener">Statistical Analysis Videos<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Textbook or Textbook Chapter</td>
           <td>Mathematics</td>
           <td>Fritz Umbach</td>
@@ -1208,7 +1223,7 @@ Mayowa Obasaju</td>
         </tr>
         <tr>
           <td>John Jay</td>
-          <td><a href="https://pressbooks.cuny.edu/landmarkcases/chapter/the-first-amendment-as-applied-to-the-arts/" target="_blank" rel="noopener">The First Amendment as Applied to the Arts</a></td>
+          <td><a href="https://pressbooks.cuny.edu/landmarkcases/chapter/the-first-amendment-as-applied-to-the-arts/" target="_blank" rel="noopener">The First Amendment as Applied to the Arts<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Textbook or Textbook Chapter</td>
           <td>Social Sciences</td>
           <td>Danielle Sapse</td>
@@ -1216,7 +1231,7 @@ Mayowa Obasaju</td>
         </tr>
         <tr>
           <td>John Jay</td>
-          <td><a href="https://pressbooks.cuny.edu/landmarkcases/chapter/you-can-say-that-but-shoud-you/" target="_blank" rel="noopener">You can say that but should you?</a></td>
+          <td><a href="https://pressbooks.cuny.edu/landmarkcases/chapter/you-can-say-that-but-shoud-you/" target="_blank" rel="noopener">You can say that but should you?<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Textbook or Textbook Chapter</td>
           <td>Social Sciences</td>
           <td>Victoria M. Perez-Rios</td>
@@ -1224,7 +1239,7 @@ Mayowa Obasaju</td>
         </tr>
         <tr>
           <td>John Jay</td>
-          <td><a href="https://pressbooks.cuny.edu/landmarkcases/chapter/50th-anniversary-of-hip-hop-culture/" target="_blank" rel="noopener">50th Anniversary of Hip-Hop Culture</a></td>
+          <td><a href="https://pressbooks.cuny.edu/landmarkcases/chapter/50th-anniversary-of-hip-hop-culture/" target="_blank" rel="noopener">50th Anniversary of Hip-Hop Culture<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Textbook or Textbook Chapter</td>
           <td>Music and Dance</td>
           <td>Crystal Endsley Taylor</td>
@@ -1232,7 +1247,7 @@ Mayowa Obasaju</td>
         </tr>
         <tr>
           <td>John Jay</td>
-          <td><a href="https://pressbooks.cuny.edu/landmarkcases/chapter/on-the-inherent-ambiguity-of-freedom-of-speech-in-a-democratic-republic/" target="_blank" rel="noopener">On the Inherent Ambiguity of Freedom of Speech in a Democratic Republic</a></td>
+          <td><a href="https://pressbooks.cuny.edu/landmarkcases/chapter/on-the-inherent-ambiguity-of-freedom-of-speech-in-a-democratic-republic/" target="_blank" rel="noopener">On the Inherent Ambiguity of Freedom of Speech in a Democratic Republic<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Textbook or Textbook Chapter</td>
           <td>Social Sciences</td>
           <td>Jonathan Berk</td>
@@ -1240,7 +1255,7 @@ Mayowa Obasaju</td>
         </tr>
         <tr>
           <td>John Jay</td>
-          <td><a href="https://pressbooks.cuny.edu/landmarkcases/chapter/should-catcalls-be-criminalized-a-brief-comparison-of-the-usa-and-spain/" target="_blank" rel="noopener">Should catcalls be criminalized? A brief comparison of the USA and Spain</a></td>
+          <td><a href="https://pressbooks.cuny.edu/landmarkcases/chapter/should-catcalls-be-criminalized-a-brief-comparison-of-the-usa-and-spain/" target="_blank" rel="noopener">Should catcalls be criminalized? A brief comparison of the USA and Spain<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Textbook or Textbook Chapter</td>
           <td>Social Sciences</td>
           <td>Victoria M. Perez-Rios</td>
@@ -1248,7 +1263,7 @@ Mayowa Obasaju</td>
         </tr>
         <tr>
           <td>John Jay</td>
-          <td><a href="https://pressbooks.cuny.edu/landmarkcases/chapter/a-dramatization-of-the-in-re-rodriguez-case-1897/" target="_blank" rel="noopener">A Dramatization of the In re Rodriguez case 1897</a></td>
+          <td><a href="https://pressbooks.cuny.edu/landmarkcases/chapter/a-dramatization-of-the-in-re-rodriguez-case-1897/" target="_blank" rel="noopener">A Dramatization of the In re Rodriguez case 1897<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Textbook or Textbook Chapter</td>
           <td>Social Sciences</td>
           <td>Liza Yukins</td>
@@ -1256,7 +1271,7 @@ Mayowa Obasaju</td>
         </tr>
         <tr>
           <td>Lehman</td>
-          <td><a href="https://academicworks.cuny.edu/le_oers/81/" target="_blank" rel="noopener">JCU 211: Japanese Culture and Literature</a></td>
+          <td><a href="https://academicworks.cuny.edu/le_oers/81/" target="_blank" rel="noopener">JCU 211: Japanese Culture and Literature<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Syllabus or Curriculum</td>
           <td>Languages, Culture, and Literature</td>
           <td>Asako Tochika</td>
@@ -1264,7 +1279,7 @@ Mayowa Obasaju</td>
         </tr>
         <tr>
           <td>Lehman</td>
-          <td><a href="https://academicworks.cuny.edu/le_oers/80/" target="_blank" rel="noopener">MSH 115: World Music Syllabus</a></td>
+          <td><a href="https://academicworks.cuny.edu/le_oers/80/" target="_blank" rel="noopener">MSH 115: World Music Syllabus<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Syllabus or Curriculum</td>
           <td>Music and Dance</td>
           <td>Smee Wang</td>
@@ -1272,7 +1287,7 @@ Mayowa Obasaju</td>
         </tr>
         <tr>
           <td>Lehman</td>
-          <td><a href="https://academicworks.cuny.edu/le_oers/82/" target="_blank" rel="noopener">PHI 172 Contemporary Moral Issues</a></td>
+          <td><a href="https://academicworks.cuny.edu/le_oers/82/" target="_blank" rel="noopener">PHI 172 Contemporary Moral Issues<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Syllabus or Curriculum</td>
           <td>Philosophy</td>
           <td>Naomi Zack</td>
@@ -1280,7 +1295,7 @@ Mayowa Obasaju</td>
         </tr>
         <tr>
           <td>Lehman</td>
-          <td><a href="https://academicworks.cuny.edu/le_oers/79/" target="_blank" rel="noopener">EDS 704: Curriculum and Instructional Practices for Culturally and Linguistically Diverse Young Children with Disabilities in Inclusive Settings</a></td>
+          <td><a href="https://academicworks.cuny.edu/le_oers/79/" target="_blank" rel="noopener">EDS 704: Curriculum and Instructional Practices for Culturally and Linguistically Diverse Young Children with Disabilities in Inclusive Settings<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Syllabus or Curriculum</td>
           <td>Education</td>
           <td>Lingyu Li</td>
@@ -1288,7 +1303,7 @@ Mayowa Obasaju</td>
         </tr>
         <tr>
           <td>Lehman</td>
-          <td><a href="https://academicworks.cuny.edu/le_oers/85/" target="_blank" rel="noopener">MAT 301 - Applied Statistics and Data Analysis</a></td>
+          <td><a href="https://academicworks.cuny.edu/le_oers/85/" target="_blank" rel="noopener">MAT 301 - Applied Statistics and Data Analysis<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Syllabus or Curriculum</td>
           <td>Mathematics</td>
           <td>Eric Aragundi</td>
@@ -1296,7 +1311,7 @@ Mayowa Obasaju</td>
         </tr>
         <tr>
           <td>Lehman</td>
-          <td><a href="https://academicworks.cuny.edu/le_oers/84/" target="_blank" rel="noopener">PSY 321 The Psychology of Immigration and Acculturation Syllabus</a></td>
+          <td><a href="https://academicworks.cuny.edu/le_oers/84/" target="_blank" rel="noopener">PSY 321 The Psychology of Immigration and Acculturation Syllabus<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Syllabus or Curriculum</td>
           <td>Social Sciences</td>
           <td>Marjorine Henriquez-Castillo</td>
@@ -1304,7 +1319,7 @@ Mayowa Obasaju</td>
         </tr>
         <tr>
           <td>QCC</td>
-          <td><a href="https://academicworks.cuny.edu/qb_oers/219/" target="_blank" rel="noopener">Trigonometry: A Brief Conversation</a></td>
+          <td><a href="https://academicworks.cuny.edu/qb_oers/219/" target="_blank" rel="noopener">Trigonometry: A Brief Conversation<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Textbook or Textbook Chapter</td>
           <td>Mathematics</td>
           <td>Carolyn D. King;
@@ -1315,7 +1330,7 @@ Beata Carvajal</td>
         </tr>
         <tr>
           <td>QCC</td>
-          <td><a href="https://academicworks.cuny.edu/qb_oers/218/" target="_blank" rel="noopener">Writing Workshop Journal: A Student-Centered Guide for College Composition</a></td>
+          <td><a href="https://academicworks.cuny.edu/qb_oers/218/" target="_blank" rel="noopener">Writing Workshop Journal: A Student-Centered Guide for College Composition<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Textbook or Textbook Chapter</td>
           <td>Languages, Culture, and Literature</td>
           <td>Tanya Zhelezcheva</td>
@@ -1323,7 +1338,7 @@ Beata Carvajal</td>
         </tr>
         <tr>
           <td>QCC</td>
-          <td><a href="https://academicworks.cuny.edu/qb_oers/208/" target="_blank" rel="noopener">Introduction to Sociology: The Family</a></td>
+          <td><a href="https://academicworks.cuny.edu/qb_oers/208/" target="_blank" rel="noopener">Introduction to Sociology: The Family<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Textbook or Textbook Chapter</td>
           <td>Social Sciences</td>
           <td>Marcia Morrison</td>
@@ -1331,7 +1346,7 @@ Beata Carvajal</td>
         </tr>
         <tr>
           <td>QCC</td>
-          <td><a href="https://academicworks.cuny.edu/qb_oers/213/" target="_blank" rel="noopener">Introduction to Sociology: Sociology - An Introduction</a></td>
+          <td><a href="https://academicworks.cuny.edu/qb_oers/213/" target="_blank" rel="noopener">Introduction to Sociology: Sociology - An Introduction<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Textbook or Textbook Chapter</td>
           <td>Social Sciences</td>
           <td>Marcia Morrison</td>
@@ -1339,7 +1354,7 @@ Beata Carvajal</td>
         </tr>
         <tr>
           <td>QCC</td>
-          <td><a href="https://academicworks.cuny.edu/qb_oers/207/" target="_blank" rel="noopener">Introduction to Sociology: Socialization</a></td>
+          <td><a href="https://academicworks.cuny.edu/qb_oers/207/" target="_blank" rel="noopener">Introduction to Sociology: Socialization<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Textbook or Textbook Chapter</td>
           <td>Social Sciences</td>
           <td>Marcia Morrison</td>
@@ -1347,7 +1362,7 @@ Beata Carvajal</td>
         </tr>
         <tr>
           <td>QCC</td>
-          <td><a href="https://academicworks.cuny.edu/qb_oers/210/" target="_blank" rel="noopener">Introduction to Sociology: Sex and Gender</a></td>
+          <td><a href="https://academicworks.cuny.edu/qb_oers/210/" target="_blank" rel="noopener">Introduction to Sociology: Sex and Gender<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Textbook or Textbook Chapter</td>
           <td>Social Sciences</td>
           <td>Marcia Morrison</td>
@@ -1355,7 +1370,7 @@ Beata Carvajal</td>
         </tr>
         <tr>
           <td>QCC</td>
-          <td><a href="https://academicworks.cuny.edu/qb_oers/214/" target="_blank" rel="noopener">Introduction to Sociology: Research</a></td>
+          <td><a href="https://academicworks.cuny.edu/qb_oers/214/" target="_blank" rel="noopener">Introduction to Sociology: Research<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Textbook or Textbook Chapter</td>
           <td>Social Sciences</td>
           <td>Marcia Morrison</td>
@@ -1363,7 +1378,7 @@ Beata Carvajal</td>
         </tr>
         <tr>
           <td>QCC</td>
-          <td><a href="https://academicworks.cuny.edu/qb_oers/215/" target="_blank" rel="noopener">Introduction to Sociology: Race and Ethnicity</a></td>
+          <td><a href="https://academicworks.cuny.edu/qb_oers/215/" target="_blank" rel="noopener">Introduction to Sociology: Race and Ethnicity<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Textbook or Textbook Chapter</td>
           <td>Social Sciences</td>
           <td>Marcia Morrison</td>
@@ -1371,7 +1386,7 @@ Beata Carvajal</td>
         </tr>
         <tr>
           <td>QCC</td>
-          <td><a href="https://academicworks.cuny.edu/qb_oers/206/" target="_blank" rel="noopener">Introduction to Sociology: Interaction and Social Structure</a></td>
+          <td><a href="https://academicworks.cuny.edu/qb_oers/206/" target="_blank" rel="noopener">Introduction to Sociology: Interaction and Social Structure<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Textbook or Textbook Chapter</td>
           <td>Social Sciences</td>
           <td>Marcia Morrison</td>
@@ -1379,7 +1394,7 @@ Beata Carvajal</td>
         </tr>
         <tr>
           <td>QCC</td>
-          <td><a href="https://academicworks.cuny.edu/qb_oers/216/" target="_blank" rel="noopener">Introduction to Sociology: Deviance and Crime</a></td>
+          <td><a href="https://academicworks.cuny.edu/qb_oers/216/" target="_blank" rel="noopener">Introduction to Sociology: Deviance and Crime<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Textbook or Textbook Chapter</td>
           <td>Social Sciences</td>
           <td>Marcia Morrison</td>
@@ -1387,7 +1402,7 @@ Beata Carvajal</td>
         </tr>
         <tr>
           <td>QCC</td>
-          <td><a href="https://academicworks.cuny.edu/qb_oers/212/" target="_blank" rel="noopener">Introduction to Sociology: Culture</a></td>
+          <td><a href="https://academicworks.cuny.edu/qb_oers/212/" target="_blank" rel="noopener">Introduction to Sociology: Culture<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Textbook or Textbook Chapter</td>
           <td>Social Sciences</td>
           <td>Marcia Morrison</td>
@@ -1395,7 +1410,7 @@ Beata Carvajal</td>
         </tr>
         <tr>
           <td>QCC</td>
-          <td><a href="https://academicworks.cuny.edu/qb_oers/211/" target="_blank" rel="noopener">Introduction to Sociology: Class and Stratification</a></td>
+          <td><a href="https://academicworks.cuny.edu/qb_oers/211/" target="_blank" rel="noopener">Introduction to Sociology: Class and Stratification<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Textbook or Textbook Chapter</td>
           <td>Social Sciences</td>
           <td>Marcia Morrison</td>
@@ -1403,7 +1418,7 @@ Beata Carvajal</td>
         </tr>
         <tr>
           <td>QCC</td>
-          <td><a href="https://academicworks.cuny.edu/qb_oers/205/" target="_blank" rel="noopener">Sociology: Culture</a></td>
+          <td><a href="https://academicworks.cuny.edu/qb_oers/205/" target="_blank" rel="noopener">Sociology: Culture<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Textbook or Textbook Chapter</td>
           <td>Social Sciences</td>
           <td>Marcia Morrison</td>
@@ -1411,7 +1426,7 @@ Beata Carvajal</td>
         </tr>
         <tr>
           <td>QCC</td>
-          <td><a href="https://academicworks.cuny.edu/qb_oers/204/" target="_blank" rel="noopener">Sociology: An Introduction</a></td>
+          <td><a href="https://academicworks.cuny.edu/qb_oers/204/" target="_blank" rel="noopener">Sociology: An Introduction<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Textbook or Textbook Chapter</td>
           <td>Social Sciences</td>
           <td>Marcia Morrison</td>
@@ -1419,7 +1434,7 @@ Beata Carvajal</td>
         </tr>
         <tr>
           <td>QCC</td>
-          <td><a href="https://academicworks.cuny.edu/qb_oers/217/" target="_blank" rel="noopener">Introduction to Sociology: Groups and Organizations</a></td>
+          <td><a href="https://academicworks.cuny.edu/qb_oers/217/" target="_blank" rel="noopener">Introduction to Sociology: Groups and Organizations<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Textbook or Textbook Chapter</td>
           <td>Social Sciences</td>
           <td>Marcia Morrison</td>
@@ -1427,7 +1442,7 @@ Beata Carvajal</td>
         </tr>
         <tr>
           <td>QCC</td>
-          <td><a href="https://academicworks.cuny.edu/qb_oers/203/" target="_blank" rel="noopener">Race and Ethnicity</a></td>
+          <td><a href="https://academicworks.cuny.edu/qb_oers/203/" target="_blank" rel="noopener">Race and Ethnicity<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Lecture, Poster, or Presentation</td>
           <td>Social Sciences</td>
           <td>Marcia Morrison</td>
@@ -1435,7 +1450,7 @@ Beata Carvajal</td>
         </tr>
         <tr>
           <td>Brooklyn</td>
-          <td><a href="https://pressbooks.cuny.edu/dreamoflatin/" target="_blank" rel="noopener">Dream of Latin: An Introductory Latin Textbook</a></td>
+          <td><a href="https://pressbooks.cuny.edu/dreamoflatin/" target="_blank" rel="noopener">Dream of Latin: An Introductory Latin Textbook<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Textbook or Textbook Chapter</td>
           <td>Languages, Culture, and Literature</td>
           <td>Phil Thibodeau;
@@ -1445,7 +1460,7 @@ Emily Fairey</td>
         </tr>
         <tr>
           <td>LaGuardia</td>
-          <td><a href="https://pressbooks.cuny.edu/journalismworkbook/" target="_blank" rel="noopener">News Writing Workbook for Beginners</a></td>
+          <td><a href="https://pressbooks.cuny.edu/journalismworkbook/" target="_blank" rel="noopener">News Writing Workbook for Beginners<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Textbook or Textbook Chapter</td>
           <td>Languages, Culture, and Literature</td>
           <td>Bijoyeta Sahoria Das</td>
@@ -1453,7 +1468,7 @@ Emily Fairey</td>
         </tr>
         <tr>
           <td>Brooklyn</td>
-          <td><a href="https://www.myopenmath.com/course/public.php?cid=107664" target="_blank" rel="noopener">MATH 2011W - History of Mathematics</a></td>
+          <td><a href="https://www.myopenmath.com/course/public.php?cid=107664" target="_blank" rel="noopener">MATH 2011W - History of Mathematics<span class="sr-only"> (opens in new tab)</span></a></td>
           <td>Syllabus or Curriculum</td>
           <td>Mathematics</td>
           <td>Jeff Suzuki</td>
