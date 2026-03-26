@@ -55,7 +55,7 @@ GitHub will automatically generate a new `oer-catalog-2025-2026.html` at the roo
 Once the HTML has been generated (check the **Actions** tab to confirm the workflow completed), a staff member with SSH access pulls the changes:
 
 ```bash
-cd /path/to/oer-catalog
+cd /var/www/html/oer
 git pull
 ```
 
