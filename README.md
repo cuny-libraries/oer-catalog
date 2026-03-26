@@ -9,9 +9,9 @@ Each academic year has its own standalone HTML file generated from an Excel sour
 ## Repository structure
 
 ```
-oer-catalog-2025-2026.html   # Generated catalog (open in any browser or embed in LibGuides)
+oer-catalog-2024-2025.html   # Generated catalog (open in any browser or embed in LibGuides)
 data/
-  oer-catalog-2025-2026.xlsx # Source Excel workbook for AY 2025–2026
+  oer-catalog-2024-2025.xlsx # Source Excel workbook for AY 2024–2025
 generate.py                  # Script to regenerate HTML from an Excel file
 README.md
 ```
@@ -67,10 +67,10 @@ Use a **Rich Text** box or **Media/Widget** box in your LibGuide and paste the f
 
 ```html
 <iframe
-  src="https://cuny-libraries.github.io/oer-catalog/oer-catalog-2025-2026.html"
+  src="https://cuny-libraries.github.io/oer-catalog/oer-catalog-2024-2025.html"
   width="100%"
   style="border: none; min-height: 600px;"
-  title="CUNY OER Catalog 2025–2026"
+  title="CUNY OER Catalog 2024–2025"
 ></iframe>
 ```
 
