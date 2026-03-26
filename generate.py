@@ -29,7 +29,7 @@ HTML_TEMPLATE = """\
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{title}</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/datatables.net-dt@1/css/dataTables.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.8/css/jquery.dataTables.min.css">
   <style>
     *, *::before, *::after {{ box-sizing: border-box; }}
     body {{
@@ -121,8 +121,8 @@ HTML_TEMPLATE = """\
     </table>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/datatables.net@1/js/dataTables.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
   <script>
   $(function () {{
     var table = $('#oer-catalog').DataTable({{
@@ -138,7 +138,7 @@ HTML_TEMPLATE = """\
     // Custom search function for dropdowns
     $.fn.dataTable.ext.search.push(function (settings, data) {{
       for (var col in filterCols) {{
-        var val = $('#filter-' + col).val();
+        var val = $('#filter-' + col.toLowerCase()).val();
         if (val && data[filterCols[col]] !== val) {{
           return false;
         }}
@@ -248,7 +248,7 @@ def generate(excel_path: str) -> str:
 
     # Derive a readable title from the filename
     stem = Path(excel_path).stem  # e.g. oer-catalog-2025-2026
-    title = stem.replace("-", " ").title()
+    title = stem.replace("-", " ").title().replace("Oer", "OER")
 
     import json
     filter_col_map_js = json.dumps(filter_col_map)
