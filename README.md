@@ -30,9 +30,9 @@ The HTML is generated automatically whenever a workbook is uploaded to the `data
 ### To update an existing year
 
 1. Go to the repository on GitHub and open the `data/` folder.
-2. Click the existing file (e.g., `oer-catalog-2024-2025.xlsx`).
-3. Click the pencil/edit icon, then **"Upload a new version"** (or delete the old file and upload the new one).
-4. Scroll down and click **"Commit changes"**.
+2. Click **"Add file" → "Upload files"**.
+3. Drop in the updated workbook, using the **same filename** as the existing one (e.g., `oer-catalog-2024-2025.xlsx`). GitHub will overwrite the old file.
+4. Click **"Commit changes"**.
 
 GitHub will automatically regenerate `oer-catalog-2024-2025.html` within a minute or two.
 
