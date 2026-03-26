@@ -88,17 +88,17 @@ Use a **Rich Text / HTML** box in your LibGuide and paste the following snippet:
 ```html
 <script src="https://cdn.jsdelivr.net/npm/iframe-resizer@4/js/iframeResizer.min.js"></script>
 <iframe
-  id="oer-catalog-frame"
+  id="oer-catalog-frame-2025"
   src="https://ols.cuny.edu/oer/oer-catalog-2024-2025.html"
   width="100%"
   style="border: none;"
   title="CUNY OER Catalog 2024–2025"
 ></iframe>
 <script>
-  iFrameResize({ license: 'GPLv3' }, '#oer-catalog-frame');
+  iFrameResize({ license: 'GPLv3' }, '#oer-catalog-frame-2025');
 </script>
 ```
 
 The iframe will automatically resize to fit the table content, eliminating the in-frame scrollbar.
 
-For future years, update the `src` and `id` to match the new HTML file (e.g., `oer-catalog-2025-2026.html`).
+The `id` uses the latter year of the academic year range (e.g., `oer-catalog-frame-2025` for AY 2024–2025, `oer-catalog-frame-2026` for AY 2025–2026). This ensures unique IDs if multiple catalog years are embedded on the same page. Update the `src`, `id`, `title`, and selector to match each year.
