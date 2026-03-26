@@ -11,8 +11,11 @@ as the input file (e.g., oer-catalog-2025-2026.html).
 
 import sys
 import os
+import re
 import html
 from pathlib import Path
+
+FILENAME_PATTERN = re.compile(r'^oer-catalog-\d{4}-\d{4}\.xlsx$')
 
 try:
     import openpyxl
@@ -269,6 +272,13 @@ def main():
     excel_path = sys.argv[1]
     if not os.path.isfile(excel_path):
         sys.exit("Error: file not found: {}".format(excel_path))
+
+    filename = Path(excel_path).name
+    if not FILENAME_PATTERN.match(filename):
+        sys.exit(
+            "Error: filename '{}' does not match the required format.\n"
+            "Expected: oer-catalog-YYYY-YYYY.xlsx (e.g. oer-catalog-2025-2026.xlsx)".format(filename)
+        )
 
     output_name = Path(excel_path).stem + ".html"
     output_path = output_name  # write to current directory

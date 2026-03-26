@@ -24,8 +24,9 @@ README.md
 
 The HTML is generated automatically whenever a workbook is uploaded to the `data/` folder on GitHub. No Python or command-line knowledge is needed.
 
-**The workbook must contain a sheet named `Catalog`** with these columns (in any order):
-`Campus`, `OER Title`, `Type`, `Discipline`, `Author`, `Platform`, `Link`
+**Workbook requirements:**
+- The filename must follow the format `oer-catalog-YYYY-YYYY.xlsx` (e.g., `oer-catalog-2025-2026.xlsx`)
+- It must contain a sheet named `Catalog` with these columns (in any order): `Campus`, `OER Title`, `Type`, `Discipline`, `Author`, `Platform`, `Link`
 
 ### To update an existing year
 
@@ -39,11 +40,12 @@ GitHub will automatically regenerate `oer-catalog-2024-2025.html` within a minut
 ### To add a new academic year
 
 1. Go to the repository on GitHub and open the `data/` folder.
-2. Click **"Add file → Upload files"**.
-3. Drop in the new workbook, named for the academic year:
+2. Click **"Add file" → "Upload files"**.
+3. Drop in the new workbook. **The filename must follow this exact format:**
    ```
-   oer-catalog-2025-2026.xlsx
+   oer-catalog-YYYY-YYYY.xlsx
    ```
+   For example: `oer-catalog-2025-2026.xlsx`. The script will fail if the filename doesn't match.
 4. Click **"Commit changes"**.
 
 GitHub will automatically generate a new `oer-catalog-2025-2026.html` at the root of the repository.
