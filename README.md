@@ -63,18 +63,18 @@ No build step or server restart is needed — the HTML file is fully self-contai
 
 ## Embedding in a LibGuide
 
-Use a **Rich Text** box or **Media/Widget** box in your LibGuide and paste the following iframe snippet, replacing the `src` URL with the raw GitHub Pages or server URL for the HTML file:
+Use a **Rich Text** box or **Media/Widget** box in your LibGuide and paste the following iframe snippet:
 
 ```html
 <iframe
-  src="https://cuny-libraries.github.io/oer-catalog/oer-catalog-2024-2025.html"
+  src="https://ols.cuny.edu/oer/oer-catalog-2024-2025.html"
   width="100%"
   style="border: none; min-height: 600px;"
   title="CUNY OER Catalog 2024–2025"
 ></iframe>
 ```
 
-> **Tip:** GitHub Pages must be enabled for the repository (Settings → Pages → deploy from `main` branch, `/ (root)`). The HTML file will then be available at `https://cuny-libraries.github.io/oer-catalog/<filename>.html`.
+For future years, update the `src` filename to match the new HTML file (e.g., `oer-catalog-2025-2026.html`).
 
 ---
 
