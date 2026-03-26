@@ -13,16 +13,18 @@ import sys
 import os
 import re
 import html
+import json
 from pathlib import Path
-
-FILENAME_PATTERN = re.compile(r'^oer-catalog-\d{4}-\d{4}\.xlsx$')
 
 try:
     import openpyxl
+    from openpyxl.utils.exceptions import InvalidFileException
 except ImportError:
     sys.exit("Error: openpyxl is required. Install it with: pip install openpyxl")
 
 
+FILENAME_PATTERN = re.compile(r'^oer-catalog-\d{4}-\d{4}\.xlsx$')
+REQUIRED_COLUMNS = ["OER Title", "Link"]
 FILTER_COLUMNS = ["Campus", "Type", "Discipline", "Platform"]
 
 HTML_TEMPLATE = """\
@@ -191,93 +193,129 @@ def make_select(col_name, options):
     ).format(col=col_name, col_id=col_id, opts='\n'.join(opt_tags))
 
 
+def cell_value(row, index):
+    """Safely retrieve a cell value from a row, returning None if out of bounds."""
+    if index < len(row):
+        return row[index]
+    return None
+
+
 def generate(excel_path: str) -> str:
-    wb = openpyxl.load_workbook(excel_path, read_only=True, data_only=True)
-    if "Catalog" not in wb.sheetnames:
-        sys.exit("Error: sheet 'Catalog' not found in workbook.")
-    ws = wb["Catalog"]
-
-    rows = [row for row in ws.iter_rows(values_only=True)]
-    if not rows:
-        sys.exit("Error: Catalog sheet is empty.")
-
-    headers = [str(h).replace('\xa0', '').strip() if h is not None else "" for h in rows[0]]
-    data_rows = rows[1:]
-
-    # Column indices
     try:
-        title_idx = headers.index("OER Title")
-        link_idx = headers.index("Link")
-    except ValueError as e:
-        sys.exit("Error: required column not found — {}".format(e))
+        wb = openpyxl.load_workbook(excel_path, read_only=True, data_only=True)
+    except InvalidFileException:
+        sys.exit("Error: '{}' is not a valid Excel file.".format(excel_path))
+    except Exception as e:
+        sys.exit("Error: could not open '{}': {}".format(excel_path, e))
 
-    # Visible columns: all except Link
-    visible_headers = [h for h in headers if h != "Link"]
+    try:
+        if "Catalog" not in wb.sheetnames:
+            sys.exit("Error: sheet 'Catalog' not found. Available sheets: {}".format(
+                ", ".join(wb.sheetnames)))
+        ws = wb["Catalog"]
 
-    # Build filter column index map (using visible column indices)
-    filter_col_map = {}
-    for col in FILTER_COLUMNS:
-        if col in visible_headers:
-            filter_col_map[col] = visible_headers.index(col)
+        rows = [row for row in ws.iter_rows(values_only=True)]
+        if not rows:
+            sys.exit("Error: Catalog sheet is empty.")
 
-    # Collect unique values for each filter column (from original headers)
-    filter_options = {col: set() for col in FILTER_COLUMNS if col in headers}
-    for row in data_rows:
-        for col in filter_options:
-            idx = headers.index(col)
-            val = row[idx]
-            if val is not None and str(val).strip():
-                filter_options[col].add(str(val).strip())
+        # Normalise headers: strip regular and non-breaking whitespace
+        raw_headers = rows[0]
+        if all(h is None for h in raw_headers):
+            sys.exit("Error: header row is empty — check that row 1 contains column names.")
+        headers = [str(h).replace('\xa0', '').strip() if h is not None else "" for h in raw_headers]
 
-    # Build filter selects HTML
-    filter_selects = "\n".join(
-        make_select(col, filter_options[col])
-        for col in FILTER_COLUMNS
-        if col in filter_options
-    )
-
-    # Build header cells
-    header_cells = "\n".join(
-        '          <th scope="col">{}</th>'.format(html.escape(h)) for h in visible_headers
-    )
-
-    # Build body rows
-    body_rows_list = []
-    for row in data_rows:
-        if all(v is None or str(v).strip() == "" for v in row):
-            continue
-        link = str(row[link_idx]).strip() if row[link_idx] else ""
-        cells = []
+        # Detect duplicate column names
+        seen = {}
         for i, h in enumerate(headers):
-            if h == "Link":
-                continue
-            val = row[i]
-            cell_text = str(val).strip() if val is not None else ""
-            if h == "OER Title" and link:
-                cell_html = '<a href="{}" target="_blank" rel="noopener">{}<span class="sr-only"> (opens in new tab)</span></a>'.format(
-                    html.escape(link, quote=True), html.escape(cell_text or "(Untitled)")
-                )
-            else:
-                cell_html = html.escape(cell_text)
-            cells.append("          <td>{}</td>".format(cell_html))
-        body_rows_list.append("        <tr>\n{}\n        </tr>".format("\n".join(cells)))
+            if h in seen:
+                sys.exit("Error: duplicate column name '{}' at positions {} and {}.".format(
+                    h, seen[h] + 1, i + 1))
+            seen[h] = i
 
-    body_rows = "\n".join(body_rows_list)
+        # Verify required columns are present
+        missing = [col for col in REQUIRED_COLUMNS if col not in headers]
+        if missing:
+            sys.exit("Error: required column(s) not found: {}.".format(", ".join(missing)))
 
-    # Derive a readable title from the filename
-    stem = Path(excel_path).stem  # e.g. oer-catalog-2025-2026
-    title = stem.replace("-", " ").title().replace("Oer", "OER")
+        link_idx = headers.index("Link")
 
-    import json
-    filter_col_map_js = json.dumps(filter_col_map)
+        data_rows = rows[1:]
+        # Filter out fully empty rows
+        data_rows = [r for r in data_rows if not all(v is None or str(v).strip() == "" for v in r)]
 
-    return HTML_TEMPLATE.format(
-        title=title,
-        filter_selects=filter_selects,
-        header_cells=header_cells,
-        body_rows=body_rows,
-        filter_col_map=filter_col_map_js,
-    )
+        if not data_rows:
+            print("Warning: no data rows found — the generated table will be empty.")
+
+        # Visible columns: all except Link
+        visible_headers = [h for h in headers if h != "Link"]
+
+        # Build filter column index map (using visible column indices)
+        filter_col_map = {}
+        for col in FILTER_COLUMNS:
+            if col in visible_headers:
+                filter_col_map[col] = visible_headers.index(col)
+
+        # Collect unique values for each filter column
+        filter_options = {col: set() for col in FILTER_COLUMNS if col in headers}
+        for row in data_rows:
+            for col in filter_options:
+                idx = headers.index(col)
+                val = cell_value(row, idx)
+                if val is not None and str(val).strip():
+                    filter_options[col].add(str(val).strip())
+
+        # Build filter selects HTML
+        filter_selects = "\n".join(
+            make_select(col, filter_options[col])
+            for col in FILTER_COLUMNS
+            if col in filter_options
+        )
+
+        # Build header cells
+        header_cells = "\n".join(
+            '          <th scope="col">{}</th>'.format(html.escape(h))
+            for h in visible_headers
+        )
+
+        # Build body rows
+        body_rows_list = []
+        for row in data_rows:
+            raw_link = cell_value(row, link_idx)
+            link = str(raw_link).strip() if raw_link is not None else ""
+            cells = []
+            for i, h in enumerate(headers):
+                if h == "Link":
+                    continue
+                val = cell_value(row, i)
+                cell_text = str(val).strip() if val is not None else ""
+                if h == "OER Title" and link:
+                    cell_html = (
+                        '<a href="{href}" target="_blank" rel="noopener">'
+                        '{text}<span class="sr-only"> (opens in new tab)</span>'
+                        '</a>'
+                    ).format(
+                        href=html.escape(link, quote=True),
+                        text=html.escape(cell_text or "(Untitled)"),
+                    )
+                else:
+                    cell_html = html.escape(cell_text)
+                cells.append("          <td>{}</td>".format(cell_html))
+            body_rows_list.append("        <tr>\n{}\n        </tr>".format("\n".join(cells)))
+
+        body_rows = "\n".join(body_rows_list)
+
+        stem = Path(excel_path).stem
+        title = stem.replace("-", " ").title().replace("Oer", "OER")
+
+        return HTML_TEMPLATE.format(
+            title=title,
+            filter_selects=filter_selects,
+            header_cells=header_cells,
+            body_rows=body_rows,
+            filter_col_map=json.dumps(filter_col_map),
+        )
+    finally:
+        wb.close()
 
 
 def main():
@@ -285,6 +323,7 @@ def main():
         sys.exit("Usage: python3 generate.py <path/to/excel-file.xlsx>")
 
     excel_path = sys.argv[1]
+
     if not os.path.isfile(excel_path):
         sys.exit("Error: file not found: {}".format(excel_path))
 
@@ -295,13 +334,15 @@ def main():
             "Expected: oer-catalog-YYYY-YYYY.xlsx (e.g. oer-catalog-2025-2026.xlsx)".format(filename)
         )
 
-    output_name = Path(excel_path).stem + ".html"
-    output_path = output_name  # write to current directory
+    output_path = Path(excel_path).stem + ".html"
 
     html_content = generate(excel_path)
 
-    with open(output_path, "w", encoding="utf-8") as f:
-        f.write(html_content)
+    try:
+        with open(output_path, "w", encoding="utf-8") as f:
+            f.write(html_content)
+    except OSError as e:
+        sys.exit("Error: could not write '{}': {}".format(output_path, e))
 
     print("Generated: {}".format(output_path))
 
