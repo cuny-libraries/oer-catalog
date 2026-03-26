@@ -65,15 +65,22 @@ git pull
 
 ## Embedding in a LibGuide
 
-Use a **Rich Text** box or **Media/Widget** box in your LibGuide and paste the following iframe snippet:
+Use a **Rich Text / HTML** box in your LibGuide and paste the following snippet:
 
 ```html
+<script src="https://cdn.jsdelivr.net/npm/iframe-resizer@4/js/iframeResizer.min.js"></script>
 <iframe
+  id="oer-catalog-frame"
   src="https://ols.cuny.edu/oer/oer-catalog-2024-2025.html"
   width="100%"
-  style="border: none; min-height: 600px;"
+  style="border: none;"
   title="CUNY OER Catalog 2024–2025"
 ></iframe>
+<script>
+  iFrameResize({ license: 'GPLv3' }, '#oer-catalog-frame');
+</script>
 ```
 
-For future years, update the `src` filename to match the new HTML file (e.g., `oer-catalog-2025-2026.html`).
+The iframe will automatically resize to fit the table content, eliminating the in-frame scrollbar.
+
+For future years, update the `src` and `id` to match the new HTML file (e.g., `oer-catalog-2025-2026.html`).
