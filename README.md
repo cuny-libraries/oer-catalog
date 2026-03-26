@@ -12,52 +12,52 @@ Each academic year has its own standalone HTML file generated from an Excel sour
 oer-catalog-2024-2025.html   # Generated catalog (open in any browser or embed in LibGuides)
 data/
   oer-catalog-2024-2025.xlsx # Source Excel workbook for AY 2024–2025
-generate.py                  # Script to regenerate HTML from an Excel file
+generate.py                  # Script used by CI to regenerate HTML
+.github/workflows/
+  generate.yml               # Automatically regenerates HTML when a workbook is uploaded
 README.md
 ```
 
 ---
 
-## Generating the HTML for a new year
+## Adding or updating a catalog (no technical setup required)
 
-**Requirements:** Python 3 and `openpyxl`.
+The HTML is generated automatically whenever a workbook is uploaded to the `data/` folder on GitHub. No Python or command-line knowledge is needed.
 
-```bash
-pip install openpyxl
-```
+**The workbook must contain a sheet named `Catalog`** with these columns (in any order):
+`Campus`, `OER Title`, `Type`, `Discipline`, `Author`, `Platform`, `Link`
 
-1. Drop the new Excel file into `data/`, named for the academic year:
+### To update an existing year
+
+1. Go to the repository on GitHub and open the `data/` folder.
+2. Click the existing file (e.g., `oer-catalog-2024-2025.xlsx`).
+3. Click the pencil/edit icon, then **"Upload a new version"** (or delete the old file and upload the new one).
+4. Scroll down and click **"Commit changes"**.
+
+GitHub will automatically regenerate `oer-catalog-2024-2025.html` within a minute or two.
+
+### To add a new academic year
+
+1. Go to the repository on GitHub and open the `data/` folder.
+2. Click **"Add file → Upload files"**.
+3. Drop in the new workbook, named for the academic year:
    ```
-   data/oer-catalog-2026-2027.xlsx
+   oer-catalog-2025-2026.xlsx
    ```
-   The workbook must contain a sheet named **Catalog** with these columns:
-   `Campus`, `OER Title`, `Type`, `Discipline`, `Author`, `Platform`, `Link`
+4. Click **"Commit changes"**.
 
-2. From the repo root, run:
-   ```bash
-   python3 generate.py data/oer-catalog-2026-2027.xlsx
-   ```
-   This writes `oer-catalog-2026-2027.html` to the current directory.
-
-3. Commit both files and push:
-   ```bash
-   git add oer-catalog-2026-2027.html data/oer-catalog-2026-2027.xlsx
-   git commit -m "Add AY 2026-2027 OER catalog"
-   git push
-   ```
+GitHub will automatically generate a new `oer-catalog-2025-2026.html` at the root of the repository.
 
 ---
 
-## Deploying updates to the server
+## Deploying to the server
 
-On the server, pull the latest changes:
+Once the HTML has been generated (check the **Actions** tab to confirm the workflow completed), a staff member with SSH access pulls the changes:
 
 ```bash
 cd /path/to/oer-catalog
 git pull
 ```
-
-No build step or server restart is needed — the HTML file is fully self-contained.
 
 ---
 
@@ -75,14 +75,3 @@ Use a **Rich Text** box or **Media/Widget** box in your LibGuide and paste the f
 ```
 
 For future years, update the `src` filename to match the new HTML file (e.g., `oer-catalog-2025-2026.html`).
-
----
-
-## Updating catalog content
-
-Catalog editors update the Excel file. A staff member with SSH access to the server then:
-
-1. Replaces the Excel file in `data/` with the updated version.
-2. Runs `python3 generate.py data/oer-catalog-YYYY-YYYY.xlsx` to regenerate the HTML.
-3. Commits both files and pushes to GitHub.
-4. SSHs into the server and runs `git pull`.
