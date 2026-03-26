@@ -61,6 +61,24 @@ cd /var/www/html/oer
 git pull
 ```
 
+### Deploying a specific branch (e.g. for testing)
+
+Replace `iframe-resizer` with the name of the branch you want to deploy:
+
+```bash
+cd /var/www/html/oer
+git fetch
+git checkout iframe-resizer
+git pull
+```
+
+To switch back to `main` after testing:
+
+```bash
+git checkout main
+git pull
+```
+
 ---
 
 ## Embedding in a LibGuide
