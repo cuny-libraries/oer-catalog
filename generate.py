@@ -183,7 +183,7 @@ def generate(excel_path: str) -> str:
     if not rows:
         sys.exit("Error: Catalog sheet is empty.")
 
-    headers = [str(h).strip() if h is not None else "" for h in rows[0]]
+    headers = [str(h).replace('\xa0', '').strip() if h is not None else "" for h in rows[0]]
     data_rows = rows[1:]
 
     # Column indices
@@ -237,7 +237,7 @@ def generate(excel_path: str) -> str:
             cell_text = str(val).strip() if val is not None else ""
             if h == "OER Title" and link:
                 cell_html = '<a href="{}" target="_blank" rel="noopener">{}</a>'.format(
-                    html.escape(link, quote=True), html.escape(cell_text)
+                    html.escape(link, quote=True), html.escape(cell_text or "(Untitled)")
                 )
             else:
                 cell_html = html.escape(cell_text)
