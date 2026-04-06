@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      issues: write
 
     steps:
       - uses: actions/checkout@v4
@@ -34,3 +35,22 @@ jobs:
           git add *.html
           git diff --cached --quiet || git commit -m "Regenerate catalog HTML from updated workbooks"
           git push
+
+      - name: Open issue on failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TITLE="Build failed: ${{ github.workflow }}"
+          if gh issue list --state open --search "$TITLE" --json title | grep -qF "$TITLE"; then
+            echo "Issue already open, skipping."
+          else
+            gh issue create \
+              --title "$TITLE" \
+              --body "The **${{ github.workflow }}** workflow failed.
+
+**Run:** ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+**Triggered by:** \`${{ github.actor }}\` pushing to \`${{ github.ref_name }}\`
+
+Please check the run log for details. Close this issue once resolved."
+          fi
