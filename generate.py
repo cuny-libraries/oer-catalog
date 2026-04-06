@@ -225,6 +225,10 @@ def generate(excel_path: str) -> str:
             sys.exit("Error: header row is empty — check that row 1 contains column names.")
         headers = [str(h).replace('\xa0', '').strip() if h is not None else "" for h in raw_headers]
 
+        # Strip trailing empty columns (e.g. ghost columns left over from a paste)
+        while headers and headers[-1] == "":
+            headers.pop()
+
         # Detect duplicate column names
         seen = {}
         for i, h in enumerate(headers):
@@ -240,7 +244,7 @@ def generate(excel_path: str) -> str:
 
         link_idx = headers.index("Link")
 
-        data_rows = rows[1:]
+        data_rows = [r[:len(headers)] for r in rows[1:]]
         # Filter out fully empty rows
         data_rows = [r for r in data_rows if not all(v is None or str(v).strip() == "" for v in r)]
 
