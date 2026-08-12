@@ -83,7 +83,25 @@ git pull
 
 ## Embedding in a LibGuide
 
-Use a **Rich Text / HTML** box in your LibGuide and paste the following snippet:
+Use a **Rich Text / HTML** box in your LibGuide and paste the following snippet.
+
+To embed from GitHub Pages (recommended for LibGuides, avoids browser Local Network Access blocking):
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/iframe-resizer@4/js/iframeResizer.min.js"></script>
+<iframe
+  id="oer-catalog-frame-2025"
+  src="https://cuny-libraries.github.io/oer-catalog/oer-catalog-2024-2025.html"
+  width="100%"
+  style="border: none;"
+  title="CUNY OER Catalog 2024–2025"
+></iframe>
+<script>
+  iFrameResize({ license: 'GPLv3' }, '#oer-catalog-frame-2025');
+</script>
+```
+
+To embed from the OLS server instead:
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/iframe-resizer@4/js/iframeResizer.min.js"></script>
